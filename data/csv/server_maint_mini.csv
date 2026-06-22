@@ -1,0 +1,17 @@
+log_id,server_id,location,check_type,issue_category,cpu_usage,memory_usage,disk_usage,fix_required
+L001,S01,zone_a,routine,디스크,12.5,45.2,60.1,0
+L002,S02,zone_b,routine,네트워크,8.3,38.1,55.0,0
+L003,S01,zone_a,routine,CPU,18.2,72.5,80.3,1
+L004,S03,zone_c,routine,디스크,25.0,80.0,70.0,1
+L005,S02,zone_b,routine,네트워크,5.0,30.0,50.0,0
+L006,S04,zone_d,routine,CPU,15.5,65.0,75.0,0
+L007,S01,zone_a,routine,디스크,22.0,78.0,82.0,1
+L008,S05,zone_e,routine,메모리,9.5,85.0,60.0,0
+L009,S03,zone_c,routine,CPU,11.0,55.0,65.0,0
+L010,S02,zone_b,routine,디스크,30.0,90.0,88.0,1
+L011,S04,zone_d,routine,네트워크,7.5,40.0,52.0,0
+L012,S01,zone_a,routine,CPU,14.0,60.0,68.0,0
+L013,S05,zone_e,routine,디스크,19.5,70.0,74.0,1
+L014,S03,zone_c,routine,네트워크,6.5,35.0,48.0,0
+L015,S04,zone_d,routine,CPU,21.0,68.0,72.0,1
+L016,S02,zone_b,routine,메모리,13.0,58.0,62.0,0

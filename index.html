@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이어드림스쿨 학습가이드</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260622b37">
+</head>
+<body data-build="20260622b34">
+  <div class="app">
+    <aside class="sidebar">
+      <header class="brand">
+        <span class="brand-icon">🎓</span>
+        <div>
+          <h1>이어드림스쿨 학습가이드</h1>
+          <p>선택형 · 코딩 실습 · 복습</p>
+        </div>
+      </header>
+
+      <nav class="sidebar-nav">
+        <button type="button" class="nav-btn active" data-view="study-choice">📝 선택형</button>
+        <button type="button" class="nav-btn" data-view="study-practice">💻 실습</button>
+        <button type="button" class="nav-btn" data-view="sql-structure">📐 SQL 구조 학습</button>
+        <button type="button" class="nav-btn" data-view="settings">⚙️ 설정</button>
+      </nav>
+
+      <!-- SQL 구조 학습: 좌측 미니 연습 -->
+      <section class="panel sql-sidebar-practice sql-only" id="sql-sidebar-practice" hidden>
+        <h2>미니 연습</h2>
+        <p class="sql-practice-topic" id="sql-practice-title">키워드 카드에서 연습 시작</p>
+        <p class="sql-practice-hint">카드의 <strong>이 예시로 연습</strong>을 누르거나 테이블 카드에서 조회하세요. <kbd>Tab</kbd> 추천 수락.</p>
+        <div class="sql-practice-editor-shell" id="sql-practice-editor-wrap">
+          <p class="sql-practice-preview-label">색상 미리보기</p>
+          <div class="sql-practice-display" id="sql-practice-display" aria-hidden="true"></div>
+          <p class="sql-practice-preview-label">입력</p>
+          <textarea
+            id="sql-practice-editor"
+            class="sql-practice-field"
+            spellcheck="false"
+            rows="5"
+            placeholder="SELECT * FROM book LIMIT 5"
+            autocomplete="off"
+          ></textarea>
+        </div>
+        <div id="sql-practice-highlight" class="sql-practice-highlight-offscreen" hidden aria-hidden="true"></div>
+        <div class="sql-practice-actions">
+          <button type="button" class="btn primary-btn sql-practice-run-btn" id="sql-practice-run">▶ 실행</button>
+          <button type="button" class="btn secondary-btn" id="sql-practice-reset">초기화</button>
+        </div>
+        <div class="sql-practice-output" id="sql-practice-output"></div>
+      </section>
+
+      <section class="panel study-only" id="deck-panel">
+        <h2>학습 콘텐츠</h2>
+        <select id="deck-select" aria-label="학습 콘텐츠 선택"></select>
+        <p class="panel-hint" id="deck-hint">5/26 IT리터러시 ~ 6/18 Pandas & 시각화</p>
+      </section>
+
+      <section class="panel study-only">
+        <h2>문제 세트</h2>
+        <select id="quiz-mode-select" aria-label="문제 세트 모드">
+          <option value="all">전체 (랜덤)</option>
+          <option value="section">섹션별</option>
+        </select>
+        <p class="panel-hint" id="quiz-mode-hint">모든 섹션에서 무작위로 출제됩니다.</p>
+      </section>
+
+      <section class="panel study-only" id="practice-part-panel" hidden>
+        <h2>실습 파트</h2>
+        <select id="practice-part-select" aria-label="실습 파트 선택">
+          <option value="all">전체 (랜덤)</option>
+          <option value="python">파이썬</option>
+          <option value="sql">SQL</option>
+          <option value="numpy">NumPy</option>
+          <option value="pandas">Pandas</option>
+          <option value="viz">데이터 시각화</option>
+        </select>
+        <p class="panel-hint" id="practice-part-hint">파트별로 실습 문제를 골라 풀 수 있습니다.</p>
+      </section>
+
+      <section class="panel study-only">
+        <h2>섹션</h2>
+        <select id="section-filter" aria-label="섹션 선택" disabled>
+          <option value="">섹션을 선택하세요</option>
+        </select>
+        <p class="panel-hint" id="section-hint">섹션별 모드에서만 선택할 수 있습니다.</p>
+      </section>
+
+      <section class="panel study-only">
+        <h2>필터</h2>
+        <label class="check-row">
+          <input type="checkbox" id="review-only">
+          <span>복습 큐만 (틀림·모름·건너뜀)</span>
+        </label>
+        <label class="check-row">
+          <input type="checkbox" id="study-mode" checked>
+          <span>학습 모드 (정답·요약 자유 열람)</span>
+        </label>
+      </section>
+
+      <section class="panel stats-panel study-only">
+        <h2 id="stats-panel-title">진행 현황 · 선택형</h2>
+        <div class="stat-grid">
+          <div class="stat"><span id="stat-total">0</span><small id="stat-total-label">선택형 전체</small></div>
+          <div class="stat"><span id="stat-done">0</span><small id="stat-done-label">선택형 완료</small></div>
+          <div class="stat"><span id="stat-review">0</span><small id="stat-review-label">선택형 복습</small></div>
+        </div>
+        <p class="panel-hint stats-hint" id="stat-summary-hint"></p>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </section>
+
+      <button type="button" class="ghost-btn study-only" id="reset-progress">진행 기록 초기화</button>
+    </aside>
+
+    <div
+      class="layout-splitter layout-splitter--col"
+      data-split="sidebar-main"
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="좌측 메뉴 너비 조절"
+      title="드래그로 크기 조절 · 더블클릭으로 초기화"
+    ></div>
+
+    <main class="main layout-pane-main">
+      <div class="main-header study-only">
+        <div class="breadcrumb" id="deck-title">문제 세트</div>
+        <div class="header-right">
+          <span class="type-badge" id="type-badge">키워드</span>
+          <span class="question-counter" id="question-counter">1 / 5</span>
+        </div>
+      </div>
+
+      <article class="card" id="study-card">
+        <div class="section-tag" id="section-tag">섹션</div>
+        <div class="question-body" id="question-text"></div>
+        <pre class="code-block" id="code-block" hidden></pre>
+        <div class="instructions-box" id="instructions-box" hidden></div>
+
+        <!-- 실습: 지시사항 + 에디터 2열 레이아웃 -->
+        <div class="practice-workspace" id="practice-workspace" hidden>
+          <aside class="practice-guide-panel" id="practice-guide-panel">
+            <div class="practice-guide-scroll" id="practice-guide-scroll">
+              <div class="practice-guide-zone practice-guide-zone--light">
+                <div class="practice-question-head">
+                  <span class="section-tag practice-section-tag" id="practice-section-tag"></span>
+                  <h2 class="practice-question-title" id="practice-question-title"></h2>
+                </div>
+                <div class="practice-workflow" id="practice-workflow" hidden aria-label="실습 단계"></div>
+                <h3 class="practice-guide-heading">지시사항</h3>
+                <div class="practice-guide-content" id="practice-guide-content"></div>
+              </div>
+              <div class="practice-guide-zone practice-guide-zone--muted">
+                <div class="practice-guide-muted-content" id="practice-guide-muted-content"></div>
+                <div class="guide-elice-section" id="practice-reference-wrap" hidden>
+                  <h4 class="guide-section-title">참고 데이터 <span class="guide-section-sub">(원본 · 일부)</span></h4>
+                  <div id="practice-reference-content" class="guide-reference-content"></div>
+                </div>
+                <div class="guide-elice-section practice-run-result-section" id="practice-run-result-wrap" hidden>
+                  <h4 class="guide-section-title practice-run-result-title">실행 결과 <span class="guide-section-sub">(내 코드)</span></h4>
+                  <div id="practice-run-result-content" class="guide-reference-content"></div>
+                </div>
+                <div class="guide-elice-section" id="practice-expected-wrap" hidden>
+                  <h4 class="guide-section-title">기대 결과</h4>
+                  <p class="guide-expected-hint" id="practice-expected-hint">아래와 같은 결과가 나오도록 SQL을 작성하세요.</p>
+                  <div id="practice-expected-content" class="guide-expected-content"></div>
+                </div>
+                <pre class="practice-schema" id="practice-schema" hidden></pre>
+                <button type="button" class="btn secondary-btn practice-preview-btn" id="preview-table-btn" hidden>📋 참고: 샘플 테이블 보기</button>
+              </div>
+            </div>
+            <div class="practice-guide-order-footer" id="practice-guide-order-footer" hidden></div>
+          </aside>
+
+          <div
+            class="layout-splitter layout-splitter--col"
+            data-split="practice-guide"
+            role="separator"
+            aria-orientation="vertical"
+            aria-label="지시사항·에디터 너비 조절"
+            title="드래그로 크기 조절 · 더블클릭으로 초기화"
+          ></div>
+
+        <!-- SQL / Python 실습 에디터 -->
+        <div class="sandbox-area" id="sandbox-area" hidden>
+          <div class="practice-help-block practice-help-block--dock" id="practice-help-block">
+            <div class="help-actions practice-help-actions">
+              <button type="button" class="btn help-btn" id="hint-btn">힌트</button>
+              <button type="button" class="btn help-btn" id="summary-btn">요약 보기</button>
+              <button type="button" class="btn help-btn reveal" id="answer-btn">정답 보기</button>
+              <button type="button" class="btn help-btn" id="explain-btn">해설 펼치기</button>
+              <button type="button" class="btn help-btn ai-trigger" id="open-ai-btn">
+                <img src="assets/helpy-avatar.png" alt="" class="helpy-avatar-inline" width="22" height="22"> HELPY
+              </button>
+            </div>
+            <div class="help-panel hint-panel" id="hint-panel" hidden></div>
+            <div class="help-panel summary-panel" id="summary-panel" hidden></div>
+            <div class="help-panel answer-panel" id="answer-panel" hidden></div>
+            <details class="explain-details practice-explain-details" id="explain-details">
+              <summary>퀴즈 해설</summary>
+              <div id="explain-content"></div>
+            </details>
+          </div>
+          <div class="sandbox-workbench" id="sandbox-workbench">
+            <div class="sandbox-editor-pane" id="sandbox-editor-pane">
+              <!-- SQL 드래그앤드롭 실습 -->
+              <div class="sql-dnd-workspace" id="sql-dnd-workspace" hidden>
+                <section class="sql-dnd-assembly" aria-label="SQL 조립">
+                  <div class="sql-dnd-assembly-head">
+                    <h4 class="sql-dnd-title">SQL 조립</h4>
+                    <p class="sql-dnd-sub">빈칸에 조각을 끌어다 놓아 SQL 문을 완성하세요</p>
+                  </div>
+                  <div class="dnd-legend sql-dnd-legend">
+                    <span class="dnd-legend-item dnd-step-1">1단계 · 조회</span>
+                    <span class="dnd-legend-item dnd-step-2">2단계 · 소스·조건</span>
+                    <span class="dnd-legend-item dnd-step-3">3단계 · 정렬·제한</span>
+                  </div>
+                  <div class="sql-dnd-grid" id="dnd-grid"></div>
+                </section>
+                <details class="sql-dnd-bank-details" open>
+                  <summary class="sql-dnd-bank-summary">
+                    <span class="sql-dnd-title">단어 보관함</span>
+                    <span class="sql-dnd-sub">필요한 조각을 끌어 빈칸에 놓으세요</span>
+                  </summary>
+                  <section class="sql-dnd-bank" aria-label="단어 보관함">
+                    <div class="sql-dnd-bank-head">
+                      <button type="button" class="btn secondary-btn sql-dnd-reshuffle" id="dnd-reshuffle">다시 섞기</button>
+                    </div>
+                    <div class="sql-dnd-bank-tokens" id="dnd-bank"></div>
+                  </section>
+                </details>
+              </div>
+
+              <div class="sandbox-editor-head" id="sandbox-editor-head">
+                <span class="sandbox-lang" id="sandbox-lang">SQL</span>
+                <span class="sandbox-editor-status" id="editor-status">● Tab: 추천 수락 · Enter: 들여쓰기 유지</span>
+              </div>
+              <div class="code-editor-wrap" id="code-editor-wrap">
+                <div class="code-editor-highlight" id="code-editor-highlight" aria-hidden="true"></div>
+                <textarea
+                  id="code-editor"
+                  class="code-editor"
+                  rows="12"
+                  spellcheck="false"
+                  autocomplete="off"
+                ></textarea>
+              </div>
+              <button
+                type="button"
+                class="code-selection-ask-btn"
+                id="code-selection-ask-btn"
+                hidden
+                title="선택한 코드에 대해 HELPY에게 질문합니다"
+              >
+                <img src="assets/helpy-avatar.png" alt="" width="22" height="22">
+                드래그한 코드 질문
+              </button>
+            </div>
+
+            <div class="sandbox-midbar" id="sandbox-midbar">
+              <div class="sandbox-toolbar" id="sandbox-toolbar">
+                <button type="button" class="sandbox-run-btn primary-run" id="run-code-btn">▶ 실행</button>
+                <button type="button" class="sandbox-run-btn secondary" id="run-all-code-btn" title="에디터의 모든 SQL 문장을 순서대로 실행">전체 실행</button>
+                <button type="button" class="sandbox-run-btn secondary" id="reset-code-btn">초기화</button>
+              </div>
+              <div class="python-task-strip" id="python-task-strip" hidden>
+                <p class="python-task-goal" id="python-task-goal"></p>
+                <p class="python-task-vars" id="python-task-vars"></p>
+              </div>
+              <div class="python-probe-bar" id="python-probe-bar" hidden>
+                <span class="python-probe-label">데이터 탐색</span>
+                <button type="button" class="btn secondary-btn python-probe-btn" data-probe="print(df.head())">df.head()</button>
+                <button type="button" class="btn secondary-btn python-probe-btn" data-probe="print(df.columns.tolist())">df.columns</button>
+                <button type="button" class="btn secondary-btn python-probe-btn" data-probe="print(mm.head())">mm.head()</button>
+                <button type="button" class="btn secondary-btn python-probe-btn" data-probe="print(df['요일'].value_counts())">요일 분포</button>
+              </div>
+              <div class="sql-probe-bar" id="sql-probe-bar" hidden>
+                <span class="sql-probe-label">테이블 탐색</span>
+                <span class="sql-probe-buttons" id="sql-probe-buttons"></span>
+                <button type="button" class="btn secondary-btn sql-probe-all-btn" id="sql-probe-all-btn" title="에디터 상단 DESC·SELECT 탐색문 전체 실행">전체 탐색 실행</button>
+              </div>
+            </div>
+
+            <div
+              class="layout-splitter layout-splitter--row"
+              data-split="sandbox-editor"
+              role="separator"
+              aria-orientation="horizontal"
+              aria-label="에디터·콘솔 높이 조절"
+              title="드래그로 크기 조절 · 더블클릭으로 초기화"
+            ></div>
+
+            <div class="sandbox-output" id="sandbox-output">
+              <div class="sandbox-output-head">
+                <div class="sandbox-output-label" id="sandbox-output-label">콘솔</div>
+                <button type="button" class="sandbox-console-clear" id="clear-console-btn">지우기</button>
+              </div>
+              <div id="sandbox-result" class="sandbox-result sandbox-result--terminal">▶ [실행]: 커서 위치 쿼리 1개 · [전체 실행]: 모든 문장 · [채점]: 마지막 SELECT</div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- 숨김: AI 컨텍스트용 -->
+        <div class="typing-area" id="typing-area" hidden aria-hidden="true">
+          <label for="answer-input" id="input-label" hidden>답 입력</label>
+          <textarea id="answer-input" hidden tabindex="-1" aria-hidden="true"></textarea>
+        </div>
+        <div class="choice-area" id="choice-area" hidden>
+          <p class="choice-prompt" id="choice-prompt"></p>
+          <div class="choice-list" id="choice-list" role="radiogroup"></div>
+        </div>
+
+        <div class="feedback" id="feedback-box" hidden></div>
+
+        <div class="action-row">
+          <div class="action-left">
+            <button type="button" class="btn secondary-btn" id="prev-btn">← 이전</button>
+            <button type="button" class="btn secondary-btn" id="mark-unknown">모름</button>
+            <button type="button" class="btn secondary-btn" id="skip-btn">건너뛰기</button>
+          </div>
+          <div class="action-right">
+            <button type="button" class="btn secondary-btn" id="submit-btn">채점</button>
+            <button type="button" class="btn primary-btn" id="next-btn" hidden>다음 문제 →</button>
+          </div>
+        </div>
+      </article>
+
+      <section class="card results-card" id="results-card" hidden>
+        <h2>세트 완료</h2>
+        <p id="results-text"></p>
+        <div class="results-actions">
+          <button type="button" class="btn primary-btn" id="review-wrong-btn">복습 큐만 다시</button>
+          <button type="button" class="btn secondary-btn" id="restart-btn">처음부터</button>
+        </div>
+      </section>
+
+      <!-- SQL 구조 학습 -->
+      <section class="card sql-structure-card" id="sql-structure-view" hidden>
+        <div id="sql-recipe-root"></div>
+
+        <div class="sql-dict-toolbar">
+          <h2>📖 SQL 키워드 사전 <small>(Cheat Sheet)</small></h2>
+          <div class="sql-dict-controls">
+            <div class="sql-filter-group" role="group" aria-label="키워드 필터">
+              <button type="button" class="sql-filter-btn active" data-filter="all">전체</button>
+              <button type="button" class="sql-filter-btn" data-filter="keyword">키워드</button>
+              <button type="button" class="sql-filter-btn" data-filter="function">함수</button>
+            </div>
+            <input type="search" id="sql-dict-search" class="sql-dict-search" placeholder="키워드 또는 설명 검색…" autocomplete="off">
+          </div>
+        </div>
+        <div id="sql-dict-root"></div>
+      </section>
+
+      <!-- 설정 화면 -->
+      <section class="card settings-card" id="settings-view" hidden>
+        <h2>⚙️ 설정</h2>
+        <p class="settings-desc">API 키는 이 브라우저에만 저장되며 서버로 전송·저장되지 않습니다.</p>
+
+        <div class="settings-block">
+          <h3><img src="assets/helpy-avatar.png" alt="" class="helpy-avatar-inline" width="24" height="24"> HELPY챗 키 <small>(무료 · Gemini)</small></h3>
+          <p class="settings-hint">
+            우측 HELPY챗 실시간 도우미에 사용합니다. 모델은 <strong>gemini-2.5-flash-lite</strong> 등 최신 무료 모델을 자동 시도합니다.
+            <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">AI Studio에서 무료 키 만들기 ↗</a>
+          </p>
+          <p class="settings-hint muted">
+            429 한도 오류가 나면 <a href="https://console.cloud.google.com/billing" target="_blank" rel="noopener">Cloud 결제 계정 연결</a> 후
+            <a href="https://aistudio.google.com/usage" target="_blank" rel="noopener">사용량</a>을 확인하세요. 키 없이도 오프라인 HELPY는 동작합니다.
+          </p>
+          <input type="password" id="gemini-key-input" class="settings-input" placeholder="AIza..." autocomplete="off">
+          <div class="settings-row">
+            <button type="button" class="btn primary-btn" id="save-gemini-key">저장</button>
+            <span class="key-status warn" id="gemini-key-status">키 미설정</span>
+          </div>
+        </div>
+
+        <div class="settings-block muted">
+          <h3>사용 팁</h3>
+          <ul class="settings-list">
+            <li>패널 경계선을 <strong>드래그</strong>하면 좌·중·우·에디터·콘솔 크기를 조절할 수 있습니다 (더블클릭 시 초기화)</li>
+            <li>실습 문제에서 막히면 우측 <strong>HELPY챗</strong>에 질문하세요</li>
+            <li><strong>코드 완성</strong>은 정답 대신 내 코드와 비교해 <em>왜</em> 그렇게 써야 하는지 설명해 줘요</li>
+            <li>힌트·오류 설명 빠른 버튼도 활용하세요</li>
+            <li>키 없이도 퀴즈·실행·채점은 모두 사용 가능합니다</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <div
+      class="layout-splitter layout-splitter--col"
+      data-split="main-helpy"
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="HELPY 패널 너비 조절"
+      title="드래그로 크기 조절 · 더블클릭으로 초기화"
+      hidden
+    ></div>
+
+    <div class="helpy-backdrop" id="helpy-backdrop" hidden aria-hidden="true"></div>
+
+    <!-- 우측 HELPY챗 (슬라이드 드로어) -->
+    <aside class="helpy-panel" id="helpy-panel" aria-label="HELPY챗" aria-hidden="true">
+      <header class="helpy-header">
+        <div class="helpy-brand">
+          <img src="assets/helpy-avatar.png" alt="" class="helpy-avatar" width="44" height="44">
+          <div>
+            <h2 class="helpy-title">HELPY챗</h2>
+            <span class="helpy-key-status warn" id="helpy-key-status">오프라인 도움 ✓</span>
+          </div>
+        </div>
+        <button type="button" class="helpy-close-btn" id="helpy-collapse-btn" aria-label="HELPY챗 닫기">✕</button>
+      </header>
+
+      <div class="helpy-key-setup" id="helpy-key-setup">
+        <p>API 키 없이도 <strong>문제·에디터·콘솔</strong>을 함께 보고 설명해 드려요. 코드를 드래그해 선택하면 <strong>드래그한 코드 질문</strong>도 가능합니다!</p>
+        <p class="helpy-key-setup-sub">더 긴 맞춤 답변은 Gemini 키 등록 후 이용하세요. (2.0 모델 종료 → 2.5 자동 연결)</p>
+        <input type="password" id="helpy-inline-key" class="helpy-inline-input" placeholder="Gemini API 키 (AIza...)" autocomplete="off">
+        <button type="button" class="btn primary-btn helpy-inline-save" id="helpy-inline-save">키 저장</button>
+        <a class="helpy-key-link" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">무료 키 발급 ↗</a>
+      </div>
+
+      <div class="helpy-body" id="helpy-body">
+        <p class="helpy-context-chip" id="helpy-context-chip" aria-live="polite">📍 학습 화면</p>
+        <div class="ai-quick-actions" id="ai-quick-actions">
+          <button type="button" class="ai-quick-btn" data-mode="hint">💡 힌트만</button>
+          <button type="button" class="ai-quick-btn" data-mode="copilot" title="내 코드와 모범 답을 비교해 왜 그렇게 써야 하는지 설명">⌨️ 코드 완성</button>
+          <button type="button" class="ai-quick-btn" data-mode="explain_error">🔧 오류 설명</button>
+          <button type="button" class="ai-quick-btn" data-mode="selection" id="ai-selection-btn" hidden>🖱️ 선택 코드 질문</button>
+        </div>
+        <div class="ai-messages" id="ai-messages"></div>
+        <div class="ai-input-row">
+          <textarea id="ai-input" rows="2" placeholder="도움 요청… (Enter 전송 · API 없이도 바로 답변)"></textarea>
+          <button type="button" class="btn primary-btn" id="ai-send-btn">전송</button>
+        </div>
+        <button type="button" class="ghost-btn ai-apply-btn" id="ai-apply-code" hidden>전체 코드로 넣기</button>
+      </div>
+    </aside>
+
+    <button type="button" class="helpy-launcher" id="helpy-fab" aria-label="HELPY챗 열기" aria-expanded="false">
+      <span class="helpy-launcher-label">HELPY챗</span>
+      <img src="assets/helpy-avatar.png" alt="" class="helpy-launcher-avatar" width="40" height="40">
+    </button>
+  </div>
+
+  <!-- 세트 완료 요약 모달 (pandas-ninja 스타일) -->
+  <dialog class="victory-dialog session-complete-dialog" id="session-complete-dialog" aria-labelledby="session-complete-title">
+    <div class="victory-dialog-inner">
+      <div class="victory-icon" aria-hidden="true">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+          <path fill="#22c55e" d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
+        </svg>
+      </div>
+      <h2 id="session-complete-title">세트 완료!</h2>
+      <div class="victory-stars" id="session-complete-stars" aria-hidden="true"></div>
+      <div class="session-complete-stats" id="session-complete-stats"></div>
+      <p class="victory-message" id="session-complete-message"></p>
+      <div class="victory-actions">
+        <button type="button" class="victory-btn victory-btn-retry" id="session-complete-restart">처음부터</button>
+        <button type="button" class="victory-btn victory-btn-next" id="session-complete-review">복습 큐만 다시</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- matplotlib 그래프 미리보기 -->
+  <dialog class="plot-preview-dialog" id="plot-preview-dialog" aria-labelledby="plot-preview-title">
+    <div class="plot-preview-inner">
+      <div class="plot-preview-head">
+        <h2 id="plot-preview-title">그래프 미리보기</h2>
+        <button type="button" class="plot-preview-close" id="plot-preview-close" aria-label="닫기">✕</button>
+      </div>
+      <div class="plot-preview-body">
+        <img id="plot-preview-img" class="plot-preview-img" alt="matplotlib 그래프" />
+      </div>
+      <p class="plot-preview-hint">plt.show()로 생성된 그래프입니다. 닫은 뒤 [채점]으로 확인하세요.</p>
+    </div>
+  </dialog>
+
+  <!-- 환영 모달 -->
+  <dialog class="welcome-dialog" id="welcome-dialog">
+    <h2>🎓 이어드림스쿨 학습가이드</h2>
+    <p>선택형 · SQL/Python 실습 · 복습을 한곳에서 진행할 수 있어요.</p>
+    <div class="welcome-highlight">
+      <strong class="welcome-helpy-title">
+        <img src="assets/helpy-avatar.png" alt="" class="helpy-avatar-inline" width="28" height="28">
+        HELPY챗 (선택 · 무료)
+      </strong>
+      <p>우측 패널에서 실시간으로 질문하고, <strong>코드 완성</strong>(이해 설명)·힌트·오류 설명을 받을 수 있어요. 정답은 왼쪽 메뉴에서 확인하세요.</p>
+      <ol>
+        <li><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">AI Studio에서 무료 Gemini 키 발급 ↗</a></li>
+        <li>설정 ⚙️에 붙여넣고 저장</li>
+      </ol>
+      <p class="welcome-note">키 없이도 퀴즈·실행·채점과 HELPY 기본 설명(마지막 입력 위치 기준)은 모두 사용 가능합니다.</p>
+    </div>
+    <div class="welcome-actions">
+      <button type="button" class="btn primary-btn" id="welcome-go-settings">무료 키 등록하러 가기</button>
+      <button type="button" class="btn secondary-btn" id="welcome-dismiss">먼저 둘러볼게요</button>
+    </div>
+  </dialog>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+  <script src="js/code-editor.js?v=20260622b35"></script>
+  <script src="js/py-datasets.js?v=20260622b35"></script>
+  <script src="js/sandbox.js?v=20260622b35"></script>
+  <script src="js/terminal-stream.js?v=20260622b35"></script>
+  <script src="js/sql-dnd.js?v=20260622b35"></script>
+  <script src="js/sql-structure-data.js?v=20260622b35"></script>
+  <script src="js/sql-structure.js?v=20260622b35"></script>
+  <script src="js/layout-splitter.js?v=20260622b37"></script>
+  <script src="js/helpy-offline.js?v=20260622b35"></script>
+  <script src="js/ai-assistant.js?v=20260622b35"></script>
+  <script src="js/choice-syntax.js?v=20260622b35"></script>
+  <script src="js/app.js?v=20260622b37"></script>
+  <script src="js/ai-ui.js?v=20260622b35"></script>
+</body>
+</html>

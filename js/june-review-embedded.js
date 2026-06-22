@@ -1,0 +1,2383 @@
+window.EMBEDDED_DECK_DATA = window.EMBEDDED_DECK_DATA || {};
+window.EMBEDDED_DECK_DATA["june-review"] = {
+  "meta": {
+    "id": "june-review",
+    "title": "6월 1~12일 복습 (기본과정)",
+    "description": "파이썬·SQL·IT기초 — 6월 복습 + 강의자료 보강"
+  },
+  "items": [
+    {
+      "id": "j0601-01",
+      "day": "06/01",
+      "section": "6/1 파이썬 기본·중급 문법",
+      "question": "파이썬에서 함수를 정의할 때 사용하는 키워드는?",
+      "code": "____ greet(name):\n    return f'Hello, {name}'",
+      "answers": [
+        "def",
+        "DEF"
+      ],
+      "hint": "define의 줄임말로, 코드 블록을 이름 붙여 재사용할 때 씁니다.",
+      "summary": "def 함수명(매개변수): 로 함수를 정의합니다. return으로 결과를 돌려줄 수 있고, 독스트링('''...''')으로 설명을 붙일 수 있습니다.",
+      "explanation": "강의 05 6/1 파이썬 기본: def 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "lambda",
+          "isCorrect": false,
+          "rationale": "lambda 매개변수: 표현식 형태입니다. map(), filter(), sorted(key=...) 등과 함께 자주 쓰입니다."
+        },
+        {
+          "text": "class",
+          "isCorrect": false,
+          "rationale": "객체를 정의하는 키워드입니다."
+        },
+        {
+          "text": "import",
+          "isCorrect": false,
+          "rationale": "다른 파일·모듈의 함수와 변수를 현재 코드로 가져오는 키워드입니다."
+        },
+        {
+          "text": "def",
+          "isCorrect": true,
+          "rationale": "def 함수명(매개변수): 로 함수를 정의합니다. return으로 결과를 돌려줄 수 있고, 독스트링('''...''')으로 설명을 붙일 수 있습니다."
+        }
+      ]
+    },
+    {
+      "id": "j0601-02",
+      "day": "06/01",
+      "section": "6/1 파이썬 기본·중급 문법",
+      "question": "리스트 items에서 첫 번째 원소(인덱스 0)에 접근하는 표현은?",
+      "code": "items = ['SQL', 'Python', 'AI']\nprint(____)",
+      "answers": [
+        "items[0]",
+        "items [0]"
+      ],
+      "hint": "대괄호 안에 0을 넣습니다. 파이썬 인덱스는 0부터 시작합니다.",
+      "summary": "리스트는 순서가 있는 mutable 시퀀스입니다. items[-1]은 마지막 원소, items[1:3]은 슬라이싱입니다.",
+      "explanation": "강의 05 6/1 파이썬 기본: items[0] 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "items[0]",
+          "isCorrect": true,
+          "rationale": "리스트는 순서가 있는 mutable 시퀀스입니다. items[-1]은 마지막 원소, items[1:3]은 슬라이싱입니다."
+        },
+        {
+          "text": "items[-1]",
+          "isCorrect": false,
+          "rationale": "리스트는 순서가 있는 mutable 시퀀스입니다."
+        },
+        {
+          "text": "items(0)",
+          "isCorrect": false,
+          "rationale": "파이썬에서는 괄호 ()만으로 컬렉션 원소에 접근하지 않습니다."
+        },
+        {
+          "text": "items[1]",
+          "isCorrect": false,
+          "rationale": "items[1]은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0601-03",
+      "day": "06/01",
+      "section": "6/1 파이썬 기본·중급 문법",
+      "question": "딕셔너리 user에서 키 'name'의 값을 꺼내는 표현은?",
+      "code": "user = {'name': 'Alice', 'age': 25}\nprint(____)",
+      "answers": [
+        "user['name']",
+        "user.get('name')",
+        "user.get(\"name\")"
+      ],
+      "hint": "키-값 쌍 자료구조에서 키로 값을 조회합니다.",
+      "summary": "dict는 {키: 값} 형태입니다. user['name']은 키가 없으면 KeyError, user.get('name')은 None 또는 기본값을 반환합니다.",
+      "explanation": "강의 05 6/1 파이썬 기본: user['name'] 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "user(name)",
+          "isCorrect": false,
+          "rationale": "파이썬에서는 괄호 ()만으로 컬렉션 원소에 접근하지 않습니다."
+        },
+        {
+          "text": "user['name']",
+          "isCorrect": true,
+          "rationale": "dict는 {키: 값} 형태입니다. user['name']은 키가 없으면 KeyError, user.get('name')은 None 또는 기본값을 반환합니다."
+        },
+        {
+          "text": "name(user)",
+          "isCorrect": false,
+          "rationale": "파이썬에서는 괄호 ()만으로 컬렉션 원소에 접근하지 않습니다."
+        },
+        {
+          "text": "user.name",
+          "isCorrect": false,
+          "rationale": "user.name은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0601-04",
+      "day": "06/01",
+      "section": "6/1 파이썬 기본·중급 문법",
+      "question": "0부터 4까지(4 미포함) 반복할 때 쓰는 내장 함수는?",
+      "code": "for i in ____(5):\n    print(i)",
+      "answers": [
+        "range",
+        "range()"
+      ],
+      "hint": "for 루프와 함께 가장 많이 쓰는 정수 시퀀스 생성기입니다.",
+      "summary": "range(5) → 0,1,2,3,4 / range(1,6) → 1~5 / range(0,10,2) → 0,2,4,6,8. 메모리 효율적으로 이터레이터를 만듭니다.",
+      "explanation": "강의 05 6/1 파이썬 기본: range 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "enumerate",
+          "isCorrect": false,
+          "rationale": "인덱스와 값을 함께 순회합니다."
+        },
+        {
+          "text": "range",
+          "isCorrect": true,
+          "rationale": "range(5) → 0,1,2,3,4 / range(1,6) → 1~5 / range(0,10,2) → 0,2,4,6,8. 메모리 효율적으로 이터레이터를 만듭니다."
+        },
+        {
+          "text": "list",
+          "isCorrect": false,
+          "rationale": "이 문항의 정답은 range 쪽 개념입니다."
+        },
+        {
+          "text": "len",
+          "isCorrect": false,
+          "rationale": "len은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0601-05",
+      "day": "06/01",
+      "section": "6/1 파이썬 기본·중급 문법",
+      "question": "if 조건이 거짓일 때 실행할 분기 키워드는?",
+      "code": "if score >= 60:\n    print('합격')\n____:\n    print('불합격')",
+      "answers": [
+        "else",
+        "ELSE"
+      ],
+      "hint": "if의 짝이 되는 '그렇지 않으면' 분기입니다.",
+      "summary": "if / elif / else 로 다중 분기를 구성합니다. elif는 else if의 줄임말로, 여러 조건을 순서대로 검사합니다.",
+      "explanation": "강의 05 6/1 파이썬 기본: 6/1 파이썬 기본 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "except",
+          "isCorrect": false,
+          "rationale": "A EXCEPT B → A에만 있고 B에는 없는 행. 데이터 차이 분석에 유용합니다."
+        },
+        {
+          "text": "finally",
+          "isCorrect": false,
+          "rationale": "예외 여부와 관계없이 실행되는 블록입니다."
+        },
+        {
+          "text": "elif",
+          "isCorrect": false,
+          "rationale": "elif는 else if의 줄임으로, 앞 조건이 거짓일 때만 다음 조건을 검사합니다."
+        },
+        {
+          "text": "else",
+          "isCorrect": true,
+          "rationale": "if / elif / else 로 다중 분기를 구성합니다. elif는 else if의 줄임말로, 여러 조건을 순서대로 검사합니다."
+        }
+      ]
+    },
+    {
+      "id": "j0602-01",
+      "day": "06/02",
+      "section": "6/2 파이썬 중급 문법",
+      "question": "리스트 nums의 각 원소를 제곱한 새 리스트를 한 줄로 만드는 문법은?",
+      "code": "nums = [1, 2, 3, 4]\nsquares = [____ for n in nums]",
+      "answers": [
+        "n**2",
+        "n ** 2",
+        "n*n",
+        "n * n"
+      ],
+      "hint": "for 앞에 '표현식'을 두는 한 줄 리스트 생성 문법입니다.",
+      "summary": "리스트 컴프리헨션: [표현식 for 변수 in 반복가능 if 조건]. dict/set 컴프리헨션도 같은 패턴으로 확장됩니다.",
+      "explanation": "강의 06 6/2 파이썬 중급 문법: n**2 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "n**2",
+          "isCorrect": true,
+          "rationale": "리스트 컴프리헨션: [표현식 for 변수 in 반복가능 if 조건]. dict/set 컴프리헨션도 같은 패턴으로 확장됩니다."
+        },
+        {
+          "text": "n*2",
+          "isCorrect": false,
+          "rationale": "n*2은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "pow(n)",
+          "isCorrect": false,
+          "rationale": "파이썬에서는 괄호 ()만으로 컬렉션 원소에 접근하지 않습니다."
+        },
+        {
+          "text": "n^2",
+          "isCorrect": false,
+          "rationale": "n^2은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0602-02",
+      "day": "06/02",
+      "section": "6/2 파이썬 중급 문법",
+      "question": "예외가 발생했을 때 잡아 처리하는 구문의 시작 키워드 두 개는?",
+      "code": "____ ValueError ____ e:\n    print('값 오류:', e)",
+      "answers": [
+        "try except",
+        "try/except"
+      ],
+      "hint": "에러가 날 수 있는 코드를 감싸고, except에서 예외 타입을 받습니다.",
+      "summary": "try-except-else-finally 구조로 예외를 처리합니다. finally는 성공·실패와 관계없이 항상 실행됩니다.",
+      "explanation": "강의 06 6/2 파이썬 중급 문법: try except 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "catch except",
+          "isCorrect": false,
+          "rationale": "A EXCEPT B → A에만 있고 B에는 없는 행. 데이터 차이 분석에 유용합니다."
+        },
+        {
+          "text": "if except",
+          "isCorrect": false,
+          "rationale": "A EXCEPT B → A에만 있고 B에는 없는 행. 데이터 차이 분석에 유용합니다."
+        },
+        {
+          "text": "try finally",
+          "isCorrect": false,
+          "rationale": "예외 여부와 관계없이 실행되는 블록입니다."
+        },
+        {
+          "text": "try except",
+          "isCorrect": true,
+          "rationale": "try-except-else-finally 구조로 예외를 처리합니다. finally는 성공·실패와 관계없이 항상 실행됩니다."
+        }
+      ]
+    },
+    {
+      "id": "j0602-03",
+      "day": "06/02",
+      "section": "6/2 파이썬 중급 문법",
+      "question": "이름 없는 한 줄 함수를 만드는 키워드는?",
+      "code": "double = ____ x: x * 2",
+      "answers": [
+        "lambda",
+        "LAMBDA"
+      ],
+      "hint": "def 대신 한 표현식만 있는 간단한 함수에 씁니다.",
+      "summary": "lambda 매개변수: 표현식 형태입니다. map(), filter(), sorted(key=...) 등과 함께 자주 쓰입니다.",
+      "explanation": "강의 06 6/2 파이썬 중급 문법: lambda 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "map",
+          "isCorrect": false,
+          "rationale": "lambda 매개변수: 표현식 형태입니다."
+        },
+        {
+          "text": "filter",
+          "isCorrect": false,
+          "rationale": "lambda 매개변수: 표현식 형태입니다."
+        },
+        {
+          "text": "def",
+          "isCorrect": false,
+          "rationale": "def 함수명(매개변수): 로 함수를 정의합니다. return으로 결과를 돌려줄 수 있고, 독스트링('''...''')으로 설명을 붙일 수 있습니다."
+        },
+        {
+          "text": "lambda",
+          "isCorrect": true,
+          "rationale": "lambda 매개변수: 표현식 형태입니다. map(), filter(), sorted(key=...) 등과 함께 자주 쓰입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0602-04",
+      "day": "06/02",
+      "section": "6/2 파이썬 중급 문법",
+      "question": "원소를 변경할 수 없는(immutable) 순서 자료형은?",
+      "answers": [
+        "tuple",
+        "튜플",
+        "tuple()"
+      ],
+      "hint": "소괄호 (1, 2, 3) 로 만듭니다. 리스트와 달리 append가 없습니다.",
+      "summary": "tuple은 (1, 2, 3) 형태로, 딕셔너리 키나 함수 반환값처럼 변경되면 안 되는 데이터에 적합합니다.",
+      "explanation": "강의 06 6/2 파이썬 중급 문법: tuple 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "list",
+          "isCorrect": false,
+          "rationale": "이 문항의 정답은 tuple 쪽 개념입니다."
+        },
+        {
+          "text": "set",
+          "isCorrect": false,
+          "rationale": "set은 {} 또는 set()으로 생성, 중복 제거·집합 연산에 유용."
+        },
+        {
+          "text": "tuple",
+          "isCorrect": true,
+          "rationale": "tuple은 (1, 2, 3) 형태로, 딕셔너리 키나 함수 반환값처럼 변경되면 안 되는 데이터에 적합합니다."
+        },
+        {
+          "text": "dict",
+          "isCorrect": false,
+          "rationale": "딕셔너리는 {키: 값} 형태이며, 키로 빠르게 값을 조회합니다."
+        }
+      ]
+    },
+    {
+      "id": "j0602-05",
+      "day": "06/02",
+      "section": "6/2 파이썬 중급 문법",
+      "question": "f-string에서 변수 name의 값을 문자열 안에 넣는 표현은?",
+      "code": "name = 'Bob'\nprint(f'Hello, ____!')",
+      "answers": [
+        "{name}",
+        "{ name }"
+      ],
+      "hint": "문자열 앞에 f를 붙이고 중괄호 안에 변수명을 씁니다.",
+      "summary": "f'...{변수}...' 포맷은 파이썬 3.6+ 권장 방식입니다. {:.2f}처럼 서식 지정도 가능합니다.",
+      "explanation": "강의 06 6/2 파이썬 중급 문법: {name} 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "%name",
+          "isCorrect": false,
+          "rationale": "%name은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "{name}",
+          "isCorrect": true,
+          "rationale": "f'...{변수}...' 포맷은 파이썬 3.6+ 권장 방식입니다. {:.2f}처럼 서식 지정도 가능합니다."
+        },
+        {
+          "text": "$name",
+          "isCorrect": false,
+          "rationale": "$name은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "name",
+          "isCorrect": false,
+          "rationale": "name은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0604-01",
+      "day": "06/04",
+      "section": "6/4 파이썬 라이브러리 활용",
+      "question": "pandas를 관용적으로 import할 때 쓰는 별칭은?",
+      "code": "import pandas as ____",
+      "answers": [
+        "pd",
+        "PD"
+      ],
+      "hint": "데이터 분석에서 표(DataFrame)를 다루는 핵심 라이브러리입니다.",
+      "summary": "pandas는 표 형태 데이터 처리에 특화됩니다. pd.read_csv(), df.head(), df.groupby() 등이 기본 도구입니다.",
+      "explanation": "강의 07 6/4 파이썬 라이브러리 활용: pd 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "pandas",
+          "isCorrect": false,
+          "rationale": "표 형태 데이터 분석 라이브러리입니다."
+        },
+        {
+          "text": "df",
+          "isCorrect": false,
+          "rationale": "pandas는 표 형태 데이터 처리에 특화됩니다."
+        },
+        {
+          "text": "pd",
+          "isCorrect": true,
+          "rationale": "pandas는 표 형태 데이터 처리에 특화됩니다. pd.read_csv(), df.head(), df.groupby() 등이 기본 도구입니다."
+        },
+        {
+          "text": "np",
+          "isCorrect": false,
+          "rationale": "np은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0604-02",
+      "day": "06/04",
+      "section": "6/4 파이썬 라이브러리 활용",
+      "question": "pandas의 2차원 표 형태 자료구조 이름은?",
+      "answers": [
+        "DataFrame",
+        "dataframe",
+        "데이터프레임"
+      ],
+      "hint": "엑셀 시트처럼 행과 열이 있는 구조입니다.",
+      "summary": "DataFrame은 열(column)마다 이름과 타입을 가집니다. Series는 1차원, DataFrame은 2차원입니다.",
+      "explanation": "강의 07 6/4 파이썬 라이브러리 활용: DataFrame 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "Matrix",
+          "isCorrect": false,
+          "rationale": "Matrix은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "DataFrame",
+          "isCorrect": true,
+          "rationale": "DataFrame은 열(column)마다 이름과 타입을 가집니다. Series는 1차원, DataFrame은 2차원입니다."
+        },
+        {
+          "text": "Series",
+          "isCorrect": false,
+          "rationale": "Pandas 1차원 라벨 배열입니다."
+        },
+        {
+          "text": "ndarray",
+          "isCorrect": false,
+          "rationale": "NumPy 배열로 행·열 라벨이 없습니다."
+        }
+      ]
+    },
+    {
+      "id": "j0604-03",
+      "day": "06/04",
+      "section": "6/4 파이썬 라이브러리 활용",
+      "question": "CSV 파일을 DataFrame으로 읽는 pandas 함수는?",
+      "code": "df = pd.____('sales.csv')",
+      "answers": [
+        "read_csv",
+        "read_csv()"
+      ],
+      "hint": "read_ 로 시작하는 파일 읽기 함수입니다.",
+      "summary": "read_csv(경로, encoding='utf-8')가 기본입니다. read_excel, read_json 등도 같은 패턴입니다.",
+      "explanation": "강의 07 6/4 파이썬 라이브러리 활용: read_csv 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "read_json",
+          "isCorrect": false,
+          "rationale": "키-값 쌍의 경량 데이터 교환 형식입니다."
+        },
+        {
+          "text": "read_csv",
+          "isCorrect": true,
+          "rationale": "read_csv(경로, encoding='utf-8')가 기본입니다. read_excel, read_json 등도 같은 패턴입니다."
+        },
+        {
+          "text": "load_csv",
+          "isCorrect": false,
+          "rationale": "load_csv은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "read_excel",
+          "isCorrect": false,
+          "rationale": "read_csv(경로, encoding='utf-8')가 기본입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0604-04",
+      "day": "06/04",
+      "section": "6/4 파이썬 라이브러리 활용",
+      "question": "수치 연산 배열을 제공하는 라이브러리 이름은?",
+      "answers": [
+        "numpy",
+        "NumPy",
+        "np"
+      ],
+      "hint": "import numpy as np 로 불러옵니다.",
+      "summary": "NumPy ndarray는 벡터·행렬 연산에 최적화되어 있습니다. pandas·scikit-learn의 기반입니다.",
+      "explanation": "강의 07 6/4 파이썬 라이브러리 활용: numpy 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "numpy",
+          "isCorrect": true,
+          "rationale": "NumPy ndarray는 벡터·행렬 연산에 최적화되어 있습니다. pandas·scikit-learn의 기반입니다."
+        },
+        {
+          "text": "math",
+          "isCorrect": false,
+          "rationale": "math은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "scipy",
+          "isCorrect": false,
+          "rationale": "scipy은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "pandas",
+          "isCorrect": false,
+          "rationale": "표 형태 데이터 분석 라이브러리입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0604-05",
+      "day": "06/04",
+      "section": "6/4 파이썬 라이브러리 활용",
+      "question": "터미널에서 pip로 패키지를 설치할 때 쓰는 명령은?",
+      "code": "pip ____ requests",
+      "answers": [
+        "install",
+        "install requests"
+      ],
+      "hint": "Python Package Index에서 라이브러리를 내려받습니다.",
+      "summary": "pip install 패키지명 / pip freeze > requirements.txt / pip install -r requirements.txt 로 환경을 관리합니다.",
+      "explanation": "강의 07 6/4 파이썬 라이브러리 활용: install 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "update",
+          "isCorrect": false,
+          "rationale": "UPDATE 테이블 SET col=값 [, col2=값2] WHERE 조건; WHERE 없으면 전체 행이 변경됩니다."
+        },
+        {
+          "text": "install",
+          "isCorrect": true,
+          "rationale": "pip install 패키지명 / pip freeze > requirements.txt / pip install -r requirements.txt 로 환경을 관리합니다."
+        },
+        {
+          "text": "remove",
+          "isCorrect": false,
+          "rationale": "apt에서 패키지를 제거하는 하위 명령입니다."
+        },
+        {
+          "text": "purge",
+          "isCorrect": false,
+          "rationale": "설정 파일까지 삭제하며 패키지를 제거합니다."
+        }
+      ]
+    },
+    {
+      "id": "j0605-01",
+      "day": "06/05",
+      "section": "6/5 생성형 AI 기초",
+      "question": "대규모 언어 모델의 영문 약자는?",
+      "answers": [
+        "LLM",
+        "llm",
+        "Large Language Model"
+      ],
+      "hint": "Large Language Model의 약자입니다.",
+      "summary": "LLM은 대량의 텍스트로 학습해 다음 토큰을 예측합니다. GPT, Claude, Llama 등이 대표적입니다.",
+      "explanation": "강의 08 6/5 생성형 AI 기초: LLM 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "GPT",
+          "isCorrect": false,
+          "rationale": "LLM은 대량의 텍스트로 학습해 다음 토큰을 예측합니다."
+        },
+        {
+          "text": "LLM",
+          "isCorrect": true,
+          "rationale": "LLM은 대량의 텍스트로 학습해 다음 토큰을 예측합니다. GPT, Claude, Llama 등이 대표적입니다."
+        },
+        {
+          "text": "API",
+          "isCorrect": false,
+          "rationale": "프로그램 간 데이터를 주고받는 인터페이스입니다."
+        },
+        {
+          "text": "RAG",
+          "isCorrect": false,
+          "rationale": "Retrieval-Augmented Generation — 벡터 DB·문서 검색 + LLM 생성."
+        }
+      ]
+    },
+    {
+      "id": "j0605-02",
+      "day": "06/05",
+      "section": "6/5 생성형 AI 기초",
+      "question": "LLM이 텍스트를 처리하는 최소 단위는?",
+      "answers": [
+        "token",
+        "토큰",
+        "tokens"
+      ],
+      "hint": "단어·부분단어·문자 조각으로 쪼갠 단위입니다.",
+      "summary": "토큰 수는 API 비용·컨텍스트 길이 제한과 직결됩니다. 영어는 대략 4글자≈1토큰, 한글은 더 많이 쓰일 수 있습니다.",
+      "explanation": "강의 08 6/5 생성형 AI 기초: token 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "word",
+          "isCorrect": false,
+          "rationale": "word은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "token",
+          "isCorrect": true,
+          "rationale": "토큰 수는 API 비용·컨텍스트 길이 제한과 직결됩니다. 영어는 대략 4글자≈1토큰, 한글은 더 많이 쓰일 수 있습니다."
+        },
+        {
+          "text": "byte",
+          "isCorrect": false,
+          "rationale": "byte은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "character",
+          "isCorrect": false,
+          "rationale": "character은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0605-03",
+      "day": "06/05",
+      "section": "6/5 생성형 AI 기초",
+      "question": "모델에게 지시·질문을 전달하는 입력 텍스트를 무엇이라 부르나요?",
+      "answers": [
+        "prompt",
+        "프롬프트",
+        "Prompt"
+      ],
+      "hint": "프롬프트 엔지니어링의 핵심 대상입니다.",
+      "summary": "좋은 prompt는 역할(role), 맥락, 출력 형식, 예시를 명확히 합니다. system/user/assistant 메시지로 구성하기도 합니다.",
+      "explanation": "강의 08 6/5 생성형 AI 기초: prompt 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "context",
+          "isCorrect": false,
+          "rationale": "context은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "prompt",
+          "isCorrect": true,
+          "rationale": "좋은 prompt는 역할(role), 맥락, 출력 형식, 예시를 명확히 합니다. system/user/assistant 메시지로 구성하기도 합니다."
+        },
+        {
+          "text": "response",
+          "isCorrect": false,
+          "rationale": "response은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "embedding",
+          "isCorrect": false,
+          "rationale": "텍스트·데이터를 벡터로 표현한 것입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0605-04",
+      "day": "06/05",
+      "section": "6/5 생성형 AI 기초",
+      "question": "모델이 사실과 다른 내용을 그럴듯하게 생성하는 현상은?",
+      "answers": [
+        "hallucination",
+        "할루시네이션",
+        "환각"
+      ],
+      "hint": "영어로 H로 시작하는 AI 용어입니다.",
+      "summary": "할루시네이션은 RAG(검색 증강), 출처 인용, temperature 조절, 검증 파이프라인으로 완화합니다.",
+      "explanation": "강의 08 6/5 생성형 AI 기초: hallucination 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "fine-tuning",
+          "isCorrect": false,
+          "rationale": "사전 학습 모델을 특정 데이터로 추가 학습하는 것입니다."
+        },
+        {
+          "text": "tokenization",
+          "isCorrect": false,
+          "rationale": "토큰 수는 API 비용·컨텍스트 길이 제한과 직결됩니다. 영어는 대략 4글자≈1토큰, 한글은 더 많이 쓰일 수 있습니다."
+        },
+        {
+          "text": "hallucination",
+          "isCorrect": true,
+          "rationale": "할루시네이션은 RAG(검색 증강), 출처 인용, temperature 조절, 검증 파이프라인으로 완화합니다."
+        },
+        {
+          "text": "overfitting",
+          "isCorrect": false,
+          "rationale": "함수() OVER (PARTITION BY ... ORDER BY ...) 형태. RANK, SUM, AVG, LAG, LEAD 등이 윈도우 함수입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0605-05",
+      "day": "06/05",
+      "section": "6/5 생성형 AI 기초",
+      "question": "Attention 메커니즘으로 문맥을 이해하는 신경망 구조는?",
+      "answers": [
+        "Transformer",
+        "transformer",
+        "트랜스포머"
+      ],
+      "hint": "'Attention is All You Need'(2017) 논문에서 제안된 아키텍처입니다.",
+      "summary": "Transformer는 Self-Attention을 핵심으로 문장 전체의 단어 관계(문맥)를 학습합니다. GPT·BERT 등 대부분의 LLM이 이 구조를 기반으로 합니다.",
+      "explanation": "강의 08 6/5 생성형 AI 기초: Transformer 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "RNN",
+          "isCorrect": false,
+          "rationale": "순환 신경망은 순차적으로 hidden state를 넘기며 문맥을 다루지만, Attention을 핵심 메커니즘으로 쓰는 구조는 Transformer입니다."
+        },
+        {
+          "text": "CNN",
+          "isCorrect": false,
+          "rationale": "합성곱 신경망은 주로 이미지·지역 패턴 인식에 쓰이며, 텍스트 문맥의 Self-Attention 모델과는 목적이 다릅니다."
+        },
+        {
+          "text": "LSTM",
+          "isCorrect": false,
+          "rationale": "LSTM은 RNN의 장기 의존성 문제를 개선한 순환 구조입니다. Attention 중심 아키텍처는 Transformer입니다."
+        },
+        {
+          "text": "Transformer",
+          "isCorrect": true,
+          "rationale": "2017년 'Attention is All You Need'에서 제안되었으며, Self-Attention으로 문맥을 학습합니다. 인코더-디코더 또는 디코더 only 구조로 GPT·BERT 등 LLM의 기반이 됩니다."
+        }
+      ]
+    },
+    {
+      "id": "j0608-01",
+      "day": "06/08",
+      "section": "6/8 SQL 개요 & DML",
+      "question": "결과로 보고 싶은 열을 고르는 SQL 키워드는?\n(비유: '~를 보여줘', 모든 쿼리의 시작점)",
+      "code": "____ Name, Composer FROM Track;",
+      "answers": [
+        "SELECT",
+        "select"
+      ],
+      "hint": "같은 데이터를 여러 각도에서 보는 시각화 기법입니다. (영문 약자)",
+      "summary": "SELECT는 조회할 컬럼을 지정합니다. SELECT * 는 모든 열을 가져옵니다. 작성 순서와 달리 실행은 FROM/WHERE 이후에 가깝습니다.",
+      "explanation": "강의 09 6/8 SQL 개요: SELECT 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "FROM",
+          "isCorrect": false,
+          "rationale": "데이터를 가져올 테이블을 지정하는 SQL 절입니다."
+        },
+        {
+          "text": "SELECT",
+          "isCorrect": true,
+          "rationale": "SELECT는 조회할 컬럼을 지정합니다. SELECT * 는 모든 열을 가져옵니다. 작성 순서와 달리 실행은 FROM/WHERE 이후에 가깝습니다."
+        },
+        {
+          "text": "UPDATE",
+          "isCorrect": false,
+          "rationale": "UPDATE 테이블 SET col=값 [, col2=값2] WHERE 조건; WHERE 없으면 전체 행이 변경됩니다."
+        },
+        {
+          "text": "INSERT",
+          "isCorrect": false,
+          "rationale": "테이블에 새 행을 추가하는 SQL 문입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0608-02",
+      "day": "06/08",
+      "section": "6/8 SQL 개요 & DML",
+      "question": "book 테이블에 새 행을 추가할 때 명령어 시작 두 단어는?",
+      "code": "____ ____ book VALUES (1, 'SQL입문');",
+      "answers": [
+        "INSERT INTO",
+        "insert into"
+      ],
+      "hint": "데이터를 테이블 안에 삽입(INSERT)합니다.",
+      "summary": "INSERT INTO 테이블(컬럼...) VALUES (값...); / 여러 행은 VALUES (...), (...); 로 한 번에 넣을 수 있습니다.",
+      "explanation": "강의 09 6/8 SQL 개요: INSERT INTO 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ADD TO",
+          "isCorrect": false,
+          "rationale": "ADD TO은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "CREATE INTO",
+          "isCorrect": false,
+          "rationale": "CREATE INTO은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "INSERT INTO",
+          "isCorrect": true,
+          "rationale": "INSERT INTO 테이블(컬럼...) VALUES (값...); / 여러 행은 VALUES (...), (...); 로 한 번에 넣을 수 있습니다."
+        },
+        {
+          "text": "INSERT SET",
+          "isCorrect": false,
+          "rationale": "테이블에 새 행을 추가하는 SQL 문입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0608-03",
+      "day": "06/08",
+      "section": "6/8 SQL 개요 & DML",
+      "question": "행 단위 조건을 거는 2단계 키워드는?",
+      "code": "SELECT * FROM book ____ price > 10000;",
+      "answers": [
+        "WHERE",
+        "where"
+      ],
+      "hint": "데이터를 구간(bin)으로 나누어 빈도를 막대로 보여 주는 차트입니다.",
+      "summary": "WHERE는 GROUP BY 이전 개별 행을 필터링합니다. HAVING은 그룹 집계 후, ON은 JOIN 조건에 씁니다.",
+      "explanation": "강의 09 6/8 SQL 개요: WHERE 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 SQL 절을 고르세요.",
+      "options": [
+        {
+          "text": "WHERE",
+          "isCorrect": true,
+          "rationale": "WHERE는 GROUP BY 이전 개별 행을 필터링합니다. HAVING은 그룹 집계 후, ON은 JOIN 조건에 씁니다."
+        },
+        {
+          "text": "GROUP BY",
+          "isCorrect": false,
+          "rationale": "SELECT의 비집계 컬럼은 GROUP BY에 포함되어야 합니다. 그룹별 SUM, AVG, COUNT 계산의 핵심입니다."
+        },
+        {
+          "text": "HAVING",
+          "isCorrect": false,
+          "rationale": "WHERE는 행 필터, HAVING은 그룹(집계) 필터. 이탈 고객: HAVING MAX(orderDate) < 기준일."
+        },
+        {
+          "text": "ON",
+          "isCorrect": false,
+          "rationale": "JOIN ... ON 조건 / WHERE는 JOIN 결과에 추가 필터. 여러 JOIN을 연쇄할 수 있습니다."
+        }
+      ]
+    },
+    {
+      "id": "j0608-04",
+      "day": "06/08",
+      "section": "6/8 SQL 개요 & DML",
+      "question": "기존 행의 컬럼 값을 변경하는 DML 명령어는?",
+      "code": "____ book SET price = 9900 WHERE id = 3;",
+      "answers": [
+        "UPDATE",
+        "update"
+      ],
+      "hint": "SET 절과 함께 쓰는 수정 명령입니다.",
+      "summary": "UPDATE 테이블 SET col=값 [, col2=값2] WHERE 조건; WHERE 없으면 전체 행이 변경됩니다.",
+      "explanation": "강의 09 6/8 SQL 개요: UPDATE 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "MODIFY",
+          "isCorrect": false,
+          "rationale": "MODIFY은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "INSERT",
+          "isCorrect": false,
+          "rationale": "테이블에 새 행을 추가하는 SQL 문입니다."
+        },
+        {
+          "text": "ALTER",
+          "isCorrect": false,
+          "rationale": "테이블 구조 변경(DDL)에 가깝습니다."
+        },
+        {
+          "text": "UPDATE",
+          "isCorrect": true,
+          "rationale": "UPDATE 테이블 SET col=값 [, col2=값2] WHERE 조건; WHERE 없으면 전체 행이 변경됩니다."
+        }
+      ]
+    },
+    {
+      "id": "j0608-05",
+      "day": "06/08",
+      "section": "6/8 SQL 개요 & DML",
+      "question": "조건에 맞는 행을 삭제하는 명령어 시작 두 단어는?",
+      "code": "____ ____ book WHERE stock = 0;",
+      "answers": [
+        "DELETE FROM",
+        "delete from"
+      ],
+      "hint": "DROP TABLE과 다릅니다. 행만 지웁니다.",
+      "summary": "DELETE FROM 테이블 WHERE 조건; / TRUNCATE는 전체 행 빠르게 삭제(DDL 성격). DROP은 테이블 자체 삭제.",
+      "explanation": "강의 09 6/8 SQL 개요: DELETE FROM 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "DELETE FROM",
+          "isCorrect": true,
+          "rationale": "DELETE FROM 테이블 WHERE 조건; / TRUNCATE는 전체 행 빠르게 삭제(DDL 성격). DROP은 테이블 자체 삭제."
+        },
+        {
+          "text": "REMOVE FROM",
+          "isCorrect": false,
+          "rationale": "데이터를 가져올 테이블을 지정하는 SQL 절입니다."
+        },
+        {
+          "text": "DROP TABLE",
+          "isCorrect": false,
+          "rationale": "Pandas 공식 타입 이름이 아닙니다."
+        },
+        {
+          "text": "TRUNCATE TABLE",
+          "isCorrect": false,
+          "rationale": "Pandas 공식 타입 이름이 아닙니다."
+        }
+      ]
+    },
+    {
+      "id": "j0609-01",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "question": "행의 개수를 세는 집계 함수는?",
+      "code": "SELECT ____(*) FROM Customer;",
+      "answers": [
+        "COUNT",
+        "count",
+        "COUNT()"
+      ],
+      "hint": "NULL을 제외하고 세려면 COUNT(컬럼명)을 씁니다.",
+      "summary": "COUNT, SUM, AVG, MAX, MIN 이 대표 집계 함수입니다. GROUP BY와 함께 그룹별 집계에 쓰입니다.",
+      "explanation": "강의 10 6/9 SQL 함수: COUNT 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "MAX",
+          "isCorrect": false,
+          "rationale": "최댓값을 구하는 집계 함수입니다."
+        },
+        {
+          "text": "COUNT",
+          "isCorrect": true,
+          "rationale": "COUNT, SUM, AVG, MAX, MIN 이 대표 집계 함수입니다. GROUP BY와 함께 그룹별 집계에 쓰입니다."
+        },
+        {
+          "text": "AVG",
+          "isCorrect": false,
+          "rationale": "숫자 열의 평균을 구하는 집계 함수입니다."
+        },
+        {
+          "text": "SUM",
+          "isCorrect": false,
+          "rationale": "숫자 열의 합계를 구하는 집계 함수입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0609-02",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "question": "특정 컬럼 기준으로 행을 묶어 집계할 때 쓰는 절은?",
+      "code": "SELECT Country, SUM(Total) FROM Invoice\n____ Country;",
+      "answers": [
+        "GROUP BY",
+        "group by"
+      ],
+      "hint": "집계 함수와 함께 '무엇을 기준으로 묶을지' 지정합니다.",
+      "summary": "SELECT의 비집계 컬럼은 GROUP BY에 포함되어야 합니다. 그룹별 SUM, AVG, COUNT 계산의 핵심입니다.",
+      "explanation": "강의 10 6/9 SQL 함수: GROUP BY 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "PARTITION BY",
+          "isCorrect": false,
+          "rationale": "PARTITION BY 없으면 전체가 하나의 파티션. 국가별 고객 순위 등에 사용."
+        },
+        {
+          "text": "HAVING",
+          "isCorrect": false,
+          "rationale": "WHERE는 행 필터, HAVING은 그룹(집계) 필터. 이탈 고객: HAVING MAX(orderDate) < 기준일."
+        },
+        {
+          "text": "GROUP BY",
+          "isCorrect": true,
+          "rationale": "SELECT의 비집계 컬럼은 GROUP BY에 포함되어야 합니다. 그룹별 SUM, AVG, COUNT 계산의 핵심입니다."
+        },
+        {
+          "text": "ORDER BY",
+          "isCorrect": false,
+          "rationale": "결과를 정렬하는 SQL 절입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0609-03",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "question": "GROUP BY 이후 집계 결과에 조건을 걸 때 쓰는 절은?",
+      "code": "SELECT customer_id, MAX(order_date)\nFROM orders GROUP BY customer_id\n____ MAX(order_date) < '2025-01-01';",
+      "answers": [
+        "HAVING",
+        "having"
+      ],
+      "hint": "WHERE는 그룹화 전, 이 절은 그룹화 후에 씁니다.",
+      "summary": "WHERE는 행 필터, HAVING은 그룹(집계) 필터. 이탈 고객: HAVING MAX(orderDate) < 기준일.",
+      "explanation": "강의 10 6/9 SQL 함수: HAVING 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ON",
+          "isCorrect": false,
+          "rationale": "JOIN ... ON 조건 / WHERE는 JOIN 결과에 추가 필터. 여러 JOIN을 연쇄할 수 있습니다."
+        },
+        {
+          "text": "HAVING",
+          "isCorrect": true,
+          "rationale": "WHERE는 행 필터, HAVING은 그룹(집계) 필터. 이탈 고객: HAVING MAX(orderDate) < 기준일."
+        },
+        {
+          "text": "LIMIT",
+          "isCorrect": false,
+          "rationale": "LIMIT n / OFFSET m. SQLite·MySQL·PostgreSQL에서 지원."
+        },
+        {
+          "text": "WHERE",
+          "isCorrect": false,
+          "rationale": "WHERE는 GROUP BY 이전 개별 행을 필터링합니다. HAVING은 그룹 집계 후, ON은 JOIN 조건에 씁니다."
+        }
+      ]
+    },
+    {
+      "id": "j0609-04",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "question": "쿼리 안에 또 다른 SELECT를 넣은 구조를 한국어로?",
+      "answers": [
+        "서브쿼리",
+        "하위쿼리",
+        "subquery",
+        "sub query"
+      ],
+      "hint": "괄호 ( SELECT ... ) 형태로 WHERE, FROM 등에 쓸 수 있습니다.",
+      "summary": "스칼라(값 1개), 단일 행, 다중 행, 상관(correlated) 서브쿼리로 분류합니다. IN, EXISTS와 자주 결합됩니다.",
+      "explanation": "강의 10 6/9 SQL 함수: 서브쿼리 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "서브쿼리",
+          "isCorrect": true,
+          "rationale": "스칼라(값 1개), 단일 행, 다중 행, 상관(correlated) 서브쿼리로 분류합니다. IN, EXISTS와 자주 결합됩니다."
+        },
+        {
+          "text": "트리거",
+          "isCorrect": false,
+          "rationale": "트리거은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "인덱스",
+          "isCorrect": false,
+          "rationale": "인덱스은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "조인",
+          "isCorrect": false,
+          "rationale": "조인은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0609-05",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "question": "서브쿼리 결과가 여러 값일 때 '포함' 여부를 검사하는 연산자는?",
+      "code": "WHERE country ____ ('USA', 'Canada', 'UK')",
+      "answers": [
+        "IN",
+        "in"
+      ],
+      "hint": "NOT IN은 포함되지 않은 값을 찾습니다.",
+      "summary": "IN (값목록 또는 서브쿼리) / NOT IN / ANY / ALL 등이 서브쿼리와 함께 쓰입니다.",
+      "explanation": "강의 10 6/9 SQL 함수: IN 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "IN",
+          "isCorrect": true,
+          "rationale": "IN (값목록 또는 서브쿼리) / NOT IN / ANY / ALL 등이 서브쿼리와 함께 쓰입니다."
+        },
+        {
+          "text": "ANY",
+          "isCorrect": false,
+          "rationale": "IN / ANY / ALL. ANY=하나라도, ALL=모두 만족."
+        },
+        {
+          "text": "EXISTS",
+          "isCorrect": false,
+          "rationale": "EXISTS / NOT EXISTS는 반쪽 집합 검사에 효율적입니다. IN보다 NULL 처리에 유리한 경우가 있습니다."
+        },
+        {
+          "text": "BETWEEN",
+          "isCorrect": false,
+          "rationale": "값이 구간 안에 있는지 검사합니다."
+        }
+      ]
+    },
+    {
+      "id": "j0610-01",
+      "day": "06/10",
+      "section": "6/10 집합연산자 & 계층형 질의",
+      "question": "두 SELECT 결과를 위아래로 합치되 중복 행을 제거하는 연산자는?",
+      "answers": [
+        "UNION",
+        "union"
+      ],
+      "hint": "집합 연산자입니다. ALL을 붙이면 중복을 유지합니다.",
+      "summary": "UNION(중복제거) / UNION ALL(중복유지) / INTERSECT(교집합) / EXCEPT(차집합). SQLite는 INTERSECT/EXCEPT 지원.",
+      "explanation": "강의 11 6/10 집합연산자: UNION 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "JOIN",
+          "isCorrect": false,
+          "rationale": "JOIN은 결합 연산이며 집합 연산과 다릅니다."
+        },
+        {
+          "text": "UNION",
+          "isCorrect": true,
+          "rationale": "UNION(중복제거) / UNION ALL(중복유지) / INTERSECT(교집합) / EXCEPT(차집합). SQLite는 INTERSECT/EXCEPT 지원."
+        },
+        {
+          "text": "MERGE",
+          "isCorrect": false,
+          "rationale": "DBMS별 확장 문법일 수 있으나, 기본 '연결' 절은 JOIN입니다."
+        },
+        {
+          "text": "CONCAT",
+          "isCorrect": false,
+          "rationale": "CONCAT은 문자열 결합 함수입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0610-02",
+      "day": "06/10",
+      "section": "6/10 집합연산자 & 계층형 질의",
+      "question": "UNION과 달리 중복 행까지 모두 합치려면?",
+      "answers": [
+        "UNION ALL",
+        "union all"
+      ],
+      "hint": "ALL 키워드를 UNION 뒤에 붙입니다.",
+      "summary": "UNION ALL은 성능상 UNION보다 빠른 경우가 많습니다. ROLLUP 유사 결과를 만들 때 자주 사용합니다.",
+      "explanation": "강의 11 6/10 집합연산자: UNION ALL 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "INTERSECT",
+          "isCorrect": false,
+          "rationale": "INTERSECT는 양쪽 SELECT 결과에 공통으로 존재하는 행만 반환합니다."
+        },
+        {
+          "text": "EXCEPT",
+          "isCorrect": false,
+          "rationale": "A EXCEPT B → A에만 있고 B에는 없는 행. 데이터 차이 분석에 유용합니다."
+        },
+        {
+          "text": "UNION ALL",
+          "isCorrect": true,
+          "rationale": "UNION ALL은 성능상 UNION보다 빠른 경우가 많습니다. ROLLUP 유사 결과를 만들 때 자주 사용합니다."
+        },
+        {
+          "text": "UNION",
+          "isCorrect": false,
+          "rationale": "UNION(중복제거) / UNION ALL(중복유지) / INTERSECT(교집합) / EXCEPT(차집합). SQLite는 INTERSECT/EXCEPT 지원."
+        }
+      ]
+    },
+    {
+      "id": "j0610-03",
+      "day": "06/10",
+      "section": "6/10 집합연산자 & 계층형 질의",
+      "question": "두 쿼리 결과의 교집합(양쪽 모두 있는 행만) 연산자는?",
+      "answers": [
+        "INTERSECT",
+        "intersect"
+      ],
+      "hint": "집합의 ∩ 에 해당합니다.",
+      "summary": "INTERSECT는 양쪽 SELECT 결과에 공통으로 존재하는 행만 반환합니다.",
+      "explanation": "강의 11 6/10 집합연산자: INTERSECT 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "EXCEPT",
+          "isCorrect": false,
+          "rationale": "A EXCEPT B → A에만 있고 B에는 없는 행. 데이터 차이 분석에 유용합니다."
+        },
+        {
+          "text": "INTERSECT",
+          "isCorrect": true,
+          "rationale": "INTERSECT는 양쪽 SELECT 결과에 공통으로 존재하는 행만 반환합니다."
+        },
+        {
+          "text": "UNION",
+          "isCorrect": false,
+          "rationale": "UNION(중복제거) / UNION ALL(중복유지) / INTERSECT(교집합) / EXCEPT(차집합). SQLite는 INTERSECT/EXCEPT 지원."
+        },
+        {
+          "text": "JOIN",
+          "isCorrect": false,
+          "rationale": "JOIN은 결합 연산이며 집합 연산과 다릅니다."
+        }
+      ]
+    },
+    {
+      "id": "j0610-04",
+      "day": "06/10",
+      "section": "6/10 집합연산자 & 계층형 질의",
+      "question": "첫 번째 결과에서 두 번째 결과를 빼는 집합 연산자는?",
+      "answers": [
+        "EXCEPT",
+        "except",
+        "MINUS"
+      ],
+      "hint": "Oracle에서는 MINUS라는 이름도 씁니다.",
+      "summary": "A EXCEPT B → A에만 있고 B에는 없는 행. 데이터 차이 분석에 유용합니다.",
+      "explanation": "강의 11 6/10 집합연산자: EXCEPT 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "UNION",
+          "isCorrect": false,
+          "rationale": "UNION(중복제거) / UNION ALL(중복유지) / INTERSECT(교집합) / EXCEPT(차집합). SQLite는 INTERSECT/EXCEPT 지원."
+        },
+        {
+          "text": "INTERSECT",
+          "isCorrect": false,
+          "rationale": "INTERSECT는 양쪽 SELECT 결과에 공통으로 존재하는 행만 반환합니다."
+        },
+        {
+          "text": "MINUS",
+          "isCorrect": false,
+          "rationale": "MINUS은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "EXCEPT",
+          "isCorrect": true,
+          "rationale": "A EXCEPT B → A에만 있고 B에는 없는 행. 데이터 차이 분석에 유용합니다."
+        }
+      ]
+    },
+    {
+      "id": "j0610-05",
+      "day": "06/10",
+      "section": "6/10 집합연산자 & 계층형 질의",
+      "question": "SQLite에서 반복적으로 자기 자신을 참조해 계층(트리)을 조회할 때 쓰는 CTE 키워드는?",
+      "answers": [
+        "WITH RECURSIVE",
+        "with recursive",
+        "RECURSIVE"
+      ],
+      "hint": "Oracle의 CONNECT BY 대신 표준 SQL에서 쓰는 방식입니다.",
+      "summary": "WITH RECURSIVE cte AS (앵커 SELECT UNION ALL 재귀 SELECT) SELECT * FROM cte; 형태로 트리·경로를 탐색합니다.",
+      "explanation": "강의 11 6/10 집합연산자: WITH RECURSIVE 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "CONNECT BY",
+          "isCorrect": false,
+          "rationale": "CONNECT BY은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "WITH RECURSIVE",
+          "isCorrect": true,
+          "rationale": "WITH RECURSIVE cte AS (앵커 SELECT UNION ALL 재귀 SELECT) SELECT * FROM cte; 형태로 트리·경로를 탐색합니다."
+        },
+        {
+          "text": "LOOP JOIN",
+          "isCorrect": false,
+          "rationale": "JOIN은 결합 연산이며 집합 연산과 다릅니다."
+        },
+        {
+          "text": "RECURSE",
+          "isCorrect": false,
+          "rationale": "RECURSE은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0611-01",
+      "day": "06/11",
+      "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+      "question": "두 테이블에서 조건에 맞는 행만 곱집합 형태로 연결하는 JOIN은?",
+      "answers": [
+        "INNER JOIN",
+        "inner join",
+        "JOIN"
+      ],
+      "hint": "가장 기본적인 JOIN입니다. 매칭 안 되면 제외됩니다.",
+      "summary": "INNER JOIN은 ON 조건을 만족하는 행 쌍만 반환합니다. CROSS JOIN은 카티션 곱입니다.",
+      "explanation": "강의 12 6/11 JOIN 심화: INNER JOIN 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "INNER JOIN",
+          "isCorrect": true,
+          "rationale": "INNER JOIN은 ON 조건을 만족하는 행 쌍만 반환합니다. CROSS JOIN은 카티션 곱입니다."
+        },
+        {
+          "text": "CROSS JOIN",
+          "isCorrect": false,
+          "rationale": "집합연산자 PDF: UNION, INTERSECT, EXCEPT, CROSS JOIN."
+        },
+        {
+          "text": "OUTER ONLY",
+          "isCorrect": false,
+          "rationale": "OUTER ONLY은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "MERGE",
+          "isCorrect": false,
+          "rationale": "DBMS별 확장 문법일 수 있으나, 기본 '연결' 절은 JOIN입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0611-02",
+      "day": "06/11",
+      "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+      "question": "왼쪽 테이블 모든 행을 유지하고 오른쪽에 매칭 없으면 NULL을 채우는 JOIN은?",
+      "answers": [
+        "LEFT JOIN",
+        "left join",
+        "LEFT OUTER JOIN"
+      ],
+      "hint": "LEFT OUTER JOIN의 줄임말입니다.",
+      "summary": "LEFT JOIN: 왼쪽 기준 전부 + 오른쪽 매칭. RIGHT JOIN은 반대. FULL OUTER는 양쪽 전부(SQLite 미지원).",
+      "explanation": "강의 12 6/11 JOIN 심화: LEFT JOIN 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "RIGHT JOIN",
+          "isCorrect": false,
+          "rationale": "오른쪽 테이블 행을 모두 유지합니다."
+        },
+        {
+          "text": "INNER ONLY",
+          "isCorrect": false,
+          "rationale": "INNER ONLY은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "CROSS JOIN",
+          "isCorrect": false,
+          "rationale": "집합연산자 PDF: UNION, INTERSECT, EXCEPT, CROSS JOIN."
+        },
+        {
+          "text": "LEFT JOIN",
+          "isCorrect": true,
+          "rationale": "LEFT JOIN: 왼쪽 기준 전부 + 오른쪽 매칭. RIGHT JOIN은 반대. FULL OUTER는 양쪽 전부(SQLite 미지원)."
+        }
+      ]
+    },
+    {
+      "id": "j0611-03",
+      "day": "06/11",
+      "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+      "question": "JOIN 시 두 테이블을 연결하는 조건을 적는 키워드는?",
+      "code": "SELECT * FROM Customer c\nJOIN Invoice i ____ c.CustomerId = i.CustomerId;",
+      "answers": [
+        "ON",
+        "on"
+      ],
+      "hint": "SQL 핵심 키워드를 떠올려 보세요.",
+      "summary": "JOIN ... ON 조건 / WHERE는 JOIN 결과에 추가 필터. 여러 JOIN을 연쇄할 수 있습니다.",
+      "explanation": "강의 12 6/11 JOIN 심화: ON 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "USING",
+          "isCorrect": false,
+          "rationale": "USING(col) / NATURAL JOIN. SQL Server는 USING 미지원."
+        },
+        {
+          "text": "WHERE",
+          "isCorrect": false,
+          "rationale": "WHERE는 GROUP BY 이전 개별 행을 필터링합니다. HAVING은 그룹 집계 후, ON은 JOIN 조건에 씁니다."
+        },
+        {
+          "text": "ON",
+          "isCorrect": true,
+          "rationale": "JOIN ... ON 조건 / WHERE는 JOIN 결과에 추가 필터. 여러 JOIN을 연쇄할 수 있습니다."
+        },
+        {
+          "text": "HAVING",
+          "isCorrect": false,
+          "rationale": "WHERE는 행 필터, HAVING은 그룹(집계) 필터. 이탈 고객: HAVING MAX(orderDate) < 기준일."
+        }
+      ]
+    },
+    {
+      "id": "j0611-04",
+      "day": "06/11",
+      "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+      "question": "바깥 쿼리의 행을 참조하는 서브쿼리를 무엇이라 부르나요?",
+      "answers": [
+        "상관 서브쿼리",
+        "correlated subquery",
+        "상관서브쿼리"
+      ],
+      "hint": "외부 테이블 별칭을 내부 SELECT에서 참조합니다.",
+      "summary": "상관 서브쿼리는 행마다 한 번씩 실행될 수 있어 비용이 큽니다. JOIN이나 윈도우 함수로 대체 가능한지 검토합니다.",
+      "explanation": "강의 12 6/11 JOIN 심화: 상관 서브쿼리 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "스칼라 서브쿼리",
+          "isCorrect": false,
+          "rationale": "스칼라 서브쿼리는 SELECT 목록에 표현식처럼 포함됩니다."
+        },
+        {
+          "text": "인라인 뷰",
+          "isCorrect": false,
+          "rationale": "인라인 뷰은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "상관 서브쿼리",
+          "isCorrect": true,
+          "rationale": "상관 서브쿼리는 행마다 한 번씩 실행될 수 있어 비용이 큽니다. JOIN이나 윈도우 함수로 대체 가능한지 검토합니다."
+        },
+        {
+          "text": "CTE",
+          "isCorrect": false,
+          "rationale": "WITH 절로 이름 붙인 임시 결과 집합입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0611-05",
+      "day": "06/11",
+      "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+      "question": "서브쿼리가 '존재하는지' 여부만 검사할 때 쓰는 키워드는?",
+      "code": "WHERE ____ (SELECT 1 FROM Invoice i WHERE i.CustomerId = c.CustomerId)",
+      "answers": [
+        "EXISTS",
+        "exists"
+      ],
+      "hint": "TRUE/FALSE만 반환하며, SELECT 목록은 보통 1 또는 *.",
+      "summary": "EXISTS / NOT EXISTS는 반쪽 집합 검사에 효율적입니다. IN보다 NULL 처리에 유리한 경우가 있습니다.",
+      "explanation": "강의 12 6/11 JOIN 심화: EXISTS 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ANY",
+          "isCorrect": false,
+          "rationale": "IN / ANY / ALL. ANY=하나라도, ALL=모두 만족."
+        },
+        {
+          "text": "EXISTS",
+          "isCorrect": true,
+          "rationale": "EXISTS / NOT EXISTS는 반쪽 집합 검사에 효율적입니다. IN보다 NULL 처리에 유리한 경우가 있습니다."
+        },
+        {
+          "text": "IN",
+          "isCorrect": false,
+          "rationale": "IN (값목록 또는 서브쿼리) / NOT IN / ANY / ALL 등이 서브쿼리와 함께 쓰입니다."
+        },
+        {
+          "text": "LIKE",
+          "isCorrect": false,
+          "rationale": "문자열 패턴(%·_)으로 검색합니다."
+        }
+      ]
+    },
+    {
+      "id": "j0612-01",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "question": "윈도우 함수와 함께 반드시 쓰이는 절은?",
+      "code": "RANK() ____ (ORDER BY Total DESC)",
+      "answers": [
+        "OVER",
+        "over"
+      ],
+      "hint": "GROUP BY처럼 행을 줄이지 않고 집계·순위를 붙입니다.",
+      "summary": "함수() OVER (PARTITION BY ... ORDER BY ...) 형태. RANK, SUM, AVG, LAG, LEAD 등이 윈도우 함수입니다.",
+      "explanation": "강의 13 6/12 그룹 함수: OVER 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ORDER BY",
+          "isCorrect": false,
+          "rationale": "결과를 정렬하는 SQL 절입니다."
+        },
+        {
+          "text": "GROUP BY",
+          "isCorrect": false,
+          "rationale": "SELECT의 비집계 컬럼은 GROUP BY에 포함되어야 합니다. 그룹별 SUM, AVG, COUNT 계산의 핵심입니다."
+        },
+        {
+          "text": "OVER",
+          "isCorrect": true,
+          "rationale": "함수() OVER (PARTITION BY ... ORDER BY ...) 형태. RANK, SUM, AVG, LAG, LEAD 등이 윈도우 함수입니다."
+        },
+        {
+          "text": "PARTITION",
+          "isCorrect": false,
+          "rationale": "함수() OVER (PARTITION BY ."
+        }
+      ]
+    },
+    {
+      "id": "j0612-02",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "question": "윈도우 계산 범위를 그룹(파티션)별로 나누는 키워드는?",
+      "code": "RANK() OVER (\n  ____ BY Country\n  ORDER BY SUM(Total) DESC\n)",
+      "answers": [
+        "PARTITION BY",
+        "partition by"
+      ],
+      "hint": "국가별로 순위가 1부터 다시 시작하게 합니다.",
+      "summary": "PARTITION BY 없으면 전체가 하나의 파티션. 국가별 고객 순위 등에 사용.",
+      "explanation": "강의 실습: PARTITION BY c.Country 로 국가별 purchase_rank.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ORDER BY",
+          "isCorrect": false,
+          "rationale": "결과를 정렬하는 SQL 절입니다."
+        },
+        {
+          "text": "GROUP BY",
+          "isCorrect": false,
+          "rationale": "SELECT의 비집계 컬럼은 GROUP BY에 포함되어야 합니다. 그룹별 SUM, AVG, COUNT 계산의 핵심입니다."
+        },
+        {
+          "text": "PARTITION BY",
+          "isCorrect": true,
+          "rationale": "PARTITION BY 없으면 전체가 하나의 파티션. 국가별 고객 순위 등에 사용."
+        },
+        {
+          "text": "HAVING",
+          "isCorrect": false,
+          "rationale": "WHERE는 행 필터, HAVING은 그룹(집계) 필터. 이탈 고객: HAVING MAX(orderDate) < 기준일."
+        }
+      ]
+    },
+    {
+      "id": "j0612-03",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "question": "전체 매출 총합을 각 행에 붙일 때 OVER 괄호 안을 비우는 함수는?",
+      "code": "SUM(Total) ____ () AS grand_total",
+      "answers": [
+        "OVER",
+        "over"
+      ],
+      "hint": "OVER()만 쓰면 전체 행이 하나의 윈도우입니다.",
+      "summary": "SUM(Total) OVER () → 모든 행에 동일한 grand_total. GROUP BY와 달리 행 수가 줄지 않습니다.",
+      "explanation": "강의 13 6/12 그룹 함수: OVER 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ORDER BY",
+          "isCorrect": false,
+          "rationale": "결과를 정렬하는 SQL 절입니다."
+        },
+        {
+          "text": "OVER",
+          "isCorrect": true,
+          "rationale": "SUM(Total) OVER () → 모든 행에 동일한 grand_total. GROUP BY와 달리 행 수가 줄지 않습니다."
+        },
+        {
+          "text": "PARTITION",
+          "isCorrect": false,
+          "rationale": "정답 개념과 혼동하기 쉬운 보기입니다."
+        },
+        {
+          "text": "GROUP BY",
+          "isCorrect": false,
+          "rationale": "SELECT의 비집계 컬럼은 GROUP BY에 포함되어야 합니다. 그룹별 SUM, AVG, COUNT 계산의 핵심입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0612-04",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "question": "날짜 순 누적 합계(Running Total)에 쓰는 윈도우 프레임 시작 키워드는?",
+      "code": "SUM(Total) OVER (\n  ORDER BY InvoiceDate\n  ROWS BETWEEN ____ PRECEDING AND CURRENT ROW\n)",
+      "answers": [
+        "UNBOUNDED",
+        "unbounded"
+      ],
+      "hint": "첫 행부터 현재 행까지 누적합니다.",
+      "summary": "UNBOUNDED PRECEDING = 윈도우 시작(첫 행). CURRENT ROW = 현재 행까지. 이동평균은 ROWS BETWEEN 2 PRECEDING AND CURRENT ROW.",
+      "explanation": "강의 실습: InvoiceDate 순 running_total 계산.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "FOLLOWING",
+          "isCorrect": false,
+          "rationale": "FOLLOWING은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "UNBOUNDED",
+          "isCorrect": true,
+          "rationale": "UNBOUNDED PRECEDING = 윈도우 시작(첫 행). CURRENT ROW = 현재 행까지. 이동평균은 ROWS BETWEEN 2 PRECEDING AND CURRENT ROW."
+        },
+        {
+          "text": "CURRENT",
+          "isCorrect": false,
+          "rationale": "UNBOUNDED PRECEDING = 윈도우 시작(첫 행)."
+        },
+        {
+          "text": "PRECEDING ONLY",
+          "isCorrect": false,
+          "rationale": "PRECEDING ONLY은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0612-05",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "question": "소계·총계를 한 번에 만들 때 쓰는 Oracle/SQLD 그룹 함수는? (SQLite는 UNION으로 대체)",
+      "answers": [
+        "ROLLUP",
+        "rollup",
+        "CUBE",
+        "GROUPING SETS"
+      ],
+      "hint": "GROUP BY 확장 함수입니다. UNION ALL로 유사 구현.",
+      "summary": "ROLLUP: 계층별 소계+총계. CUBE: 모든 조합. GROUPING SETS: 원하는 그룹만 지정. SQLite는 UNION ALL 패턴으로 대체.",
+      "explanation": "강의 13 6/12 그룹 함수: ROLLUP 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ROLLUP",
+          "isCorrect": true,
+          "rationale": "ROLLUP: 계층별 소계+총계. CUBE: 모든 조합. GROUPING SETS: 원하는 그룹만 지정. SQLite는 UNION ALL 패턴으로 대체."
+        },
+        {
+          "text": "UNPIVOT",
+          "isCorrect": false,
+          "rationale": "UNPIVOT은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "PIVOT",
+          "isCorrect": false,
+          "rationale": "PIVOT은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "CUBE",
+          "isCorrect": false,
+          "rationale": "ROLLUP: 계층별 소계+총계."
+        }
+      ]
+    },
+    {
+      "id": "j0612-06",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "question": "고객별 구매 총액 기준 전체 순위를 매기는 윈도우 함수는?",
+      "code": "____() OVER (ORDER BY SUM(Total) DESC) AS purchase_rank",
+      "answers": [
+        "RANK",
+        "RANK()",
+        "rank"
+      ],
+      "hint": "동점이 있으면 다음 순위가 건너뜁니다. DENSE_RANK는 건너뛰지 않습니다.",
+      "summary": "RANK / DENSE_RANK / ROW_NUMBER / PERCENT_RANK / CUME_DIST / NTILE 등이 순위·분포 분석에 쓰입니다.",
+      "explanation": "강의 13 6/12 그룹 함수: RANK 단원에서 다룹니다.",
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "DENSE_RANK",
+          "isCorrect": false,
+          "rationale": "RANK / DENSE_RANK / ROW_NUMBER. PERCENT_RANK, NTILE도 분석에 사용."
+        },
+        {
+          "text": "NTILE",
+          "isCorrect": false,
+          "rationale": "결과를 N개 구간(버킷)으로 나눕니다."
+        },
+        {
+          "text": "ROW_NUMBER",
+          "isCorrect": false,
+          "rationale": "ROW_NUMBER는 중복 없이 1,2,3…"
+        },
+        {
+          "text": "RANK",
+          "isCorrect": true,
+          "rationale": "RANK / DENSE_RANK / ROW_NUMBER / PERCENT_RANK / CUME_DIST / NTILE 등이 순위·분포 분석에 쓰입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0612-choice-01",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "itemType": "choice",
+      "question": "Q. 다음 설명 중 데이터 분석을 위한 함수가 아닌 것은?",
+      "choicePrompt": "보기 중 데이터 분석 함수가 아닌 것을 고르세요.",
+      "options": [
+        {
+          "text": "조인 함수",
+          "isCorrect": true,
+          "rationale": "조인은 테이블을 연결하는 연산입니다. '조인 함수'라는 분석 함수 분류는 없습니다."
+        },
+        {
+          "text": "윈도우 함수",
+          "isCorrect": false,
+          "rationale": "순위·누적합·비율 등 분석에 널리 쓰입니다."
+        },
+        {
+          "text": "집계 함수",
+          "isCorrect": false,
+          "rationale": "SUM, AVG, COUNT 등 그룹 집계에 사용합니다."
+        },
+        {
+          "text": "그룹 함수",
+          "isCorrect": false,
+          "rationale": "ROLLUP, CUBE 등 다차원 집계에 해당합니다."
+        }
+      ],
+      "explanation": "강의 13 6/12 그룹 함수: 6/12 그룹 함수 단원에서 다룹니다.",
+      "summary": "윈도우=행 유지+분석값 부착, 집계=GROUP BY로 묶기, JOIN=테이블 연결.",
+      "hint": "거짓인 설명을 찾아보세요. 윈도우=행 유지+분석값 부착, 집계=GROUP BY로 묶기, JOIN=테이블 연결."
+    },
+    {
+      "id": "j0612-sql-01",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "itemType": "sql",
+      "question": "실습: GYM_MEMBER 테이블 — 3대 운동 합계와 순위",
+      "instructions": "GYM_MEMBER 테이블에서 MEMBER_ID, SQUAT, BENCH_PRESS, DEADLIFT, 세 운동 합계(WEIGHT_SUM), RANK() 순위를 구하세요. 합계 내림차순으로 정렬합니다. 동점자는 같은 순위를 받습니다.",
+      "sandbox": "gym_member",
+      "starterSql": "-- 아래는 GYM_MEMBER 테이블 구조입니다. 테이블을 수정할 필요는 없습니다.\nPRAGMA table_info(GYM_MEMBER);\n\nSELECT * FROM GYM_MEMBER;\n\n-- GYM_MEMBER 테이블에서 MEMBER_ID, SQUAT, BENCH_PRESS, DEADLIFT, 세 운동 합계(WEIGHT_SUM), RANK() 순위를 구하세요. 합계 내림차순으로 정렬합니다. 동점자는 같은 순위를 받습니다.\nSELECT /* TODO: 컬럼·함수 */\nFROM GYM_MEMBER\nORDER BY /* TODO */\n;\n",
+      "validate": {
+        "patterns": [
+          "rank",
+          "over",
+          "order by"
+        ],
+        "minRows": 1,
+        "requiredColumns": [
+          "MEMBER_ID"
+        ]
+      },
+      "referenceSql": "SELECT MEMBER_ID, SQUAT, BENCH_PRESS, DEADLIFT,\n       (SQUAT + BENCH_PRESS + DEADLIFT) AS WEIGHT_SUM,\n       RANK() OVER (ORDER BY (SQUAT + BENCH_PRESS + DEADLIFT) DESC) AS RANK\nFROM GYM_MEMBER\nORDER BY WEIGHT_SUM DESC;",
+      "hint": "합계 = SQUAT + BENCH_PRESS + DEADLIFT. RANK() OVER (ORDER BY ... DESC)",
+      "summary": "RANK() OVER (ORDER BY expr DESC)는 동점 시 같은 순위를 부여하고 다음 순위를 건너뜁니다.",
+      "explanation": "DENSE_RANK는 건너뛰지 않고, ROW_NUMBER는 동점도 다른 번호를 부여합니다.",
+      "practiceGuide": {
+        "tables": [
+          "GYM_MEMBER"
+        ],
+        "steps": [
+          "GYM_MEMBER 테이블을 FROM에 사용"
+        ]
+      },
+      "eliceFormat": true
+    },
+    {
+      "id": "j0608-sql-01",
+      "day": "06/08",
+      "section": "6/8 SQL 개요 & DML",
+      "itemType": "sql",
+      "question": "실습: book 테이블에서 가격 15000원 이상 도서 조회",
+      "instructions": "book 테이블에서 price가 15000 이상인 도서의 id, title, price를 조회하세요.",
+      "sandbox": "book",
+      "starterSql": "-- 아래는 book 테이블 구조입니다. 테이블을 수정할 필요는 없습니다.\nPRAGMA table_info(book);\n\nSELECT * FROM book;\n\n-- book 테이블에서 price가 15000 이상인 도서의 id, title, price를 조회하세요.\nSELECT /* TODO: 컬럼·함수 */\nFROM book\nWHERE /* TODO: 조건 */\n;\n",
+      "validate": {
+        "patterns": [
+          "select",
+          "from book",
+          "where",
+          "price"
+        ],
+        "minRows": 1
+      },
+      "referenceSql": "SELECT id, title, price FROM book WHERE price >= 15000;",
+      "hint": "WHERE 절로 행 단위 조건을 걸어요.",
+      "summary": "SELECT 열 FROM 테이블 WHERE 조건; 이 기본 조회 패턴입니다.",
+      "practiceGuide": {
+        "tables": [
+          "book"
+        ],
+        "steps": [
+          "book 테이블을 FROM에 사용"
+        ]
+      },
+      "eliceFormat": true
+    },
+    {
+      "id": "j0601-py-01",
+      "day": "06/01",
+      "section": "6/1 파이썬 기본·중급 문법",
+      "itemType": "python",
+      "question": "실습: 리스트 제곱 만들기",
+      "instructions": "nums = [1, 2, 3, 4] 가 있을 때, 각 원소의 제곱 리스트 squares를 만들고 print(squares)로 [1, 4, 9, 16]을 출력하세요.",
+      "starterCode": "nums = [1, 2, 3, 4]\n# squares 리스트를 만드세요\n\nprint(squares)",
+      "validate": {
+        "patterns": [
+          "for",
+          "squares"
+        ],
+        "assertCode": "assert squares == [1, 4, 9, 16]"
+      },
+      "referenceCode": "squares = [n ** 2 for n in nums]\nprint(squares)",
+      "hint": "리스트 컴프리헨션 [n ** 2 for n in nums] 또는 for 루프를 사용하세요.",
+      "summary": "리스트 컴프리헨션은 [표현식 for 변수 in 반복가능] 형태입니다.",
+      "practiceGuide": {
+        "steps": [
+          "주어진 nums 리스트를 사용합니다",
+          "리스트 컴프리헨션으로 제곱 리스트를 만듭니다",
+          "결과를 출력합니다"
+        ]
+      },
+      "eliceFormat": true
+    },
+    {
+      "id": "j0609-sql-01",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "itemType": "sql",
+      "question": "실습: 국가별 청구 건수 집계",
+      "instructions": "Invoice 테이블에서 BillingCountry별 청구 건수(cnt)를 구하고, 건수가 많은 순으로 정렬하세요.",
+      "sandbox": "invoice",
+      "starterSql": "-- 아래는 Invoice 테이블 구조입니다. 테이블을 수정할 필요는 없습니다.\nPRAGMA table_info(Invoice);\n\nSELECT * FROM Invoice;\n\n-- Invoice 테이블에서 BillingCountry별 청구 건수(cnt)를 구하고, 건수가 많은 순으로 정렬하세요.\nSELECT /* TODO: 컬럼·함수 */\nFROM Invoice\nGROUP BY /* TODO */\nORDER BY /* TODO */\n;\n",
+      "validate": {
+        "patterns": [
+          "group by",
+          "count",
+          "order by"
+        ],
+        "minRows": 1
+      },
+      "referenceSql": "SELECT BillingCountry, COUNT(*) AS cnt\nFROM Invoice\nGROUP BY BillingCountry\nORDER BY cnt DESC;",
+      "hint": "COUNT(*)와 GROUP BY BillingCountry를 사용하세요.",
+      "summary": "GROUP BY로 묶고 COUNT, SUM, AVG 등 집계 함수를 적용합니다.",
+      "practiceGuide": {
+        "tables": [
+          "Invoice"
+        ],
+        "steps": [
+          "Invoice 테이블을 FROM에 사용"
+        ]
+      },
+      "eliceFormat": true
+    },
+    {
+      "id": "j0612-sql-02",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "itemType": "sql",
+      "question": "실습: 국가별 평균 청구액을 각 행에 표시",
+      "instructions": "Invoice 테이블에서 InvoiceId, BillingCountry, Total과 함께 국가별 평균 Total(country_avg)을 윈도우 함수로 각 행에 표시하세요.",
+      "sandbox": "invoice",
+      "starterSql": "-- 아래는 Invoice 테이블 구조입니다. 테이블을 수정할 필요는 없습니다.\nPRAGMA table_info(Invoice);\n\nSELECT * FROM Invoice;\n\n-- Invoice 테이블에서 InvoiceId, BillingCountry, Total과 함께 국가별 평균 Total(country_avg)을 윈도우 함수로 각 행에 표시하세요.\nSELECT /* TODO: 컬럼·함수 */\nFROM Invoice;\n;\n",
+      "validate": {
+        "patterns": [
+          "avg",
+          "over",
+          "partition by"
+        ],
+        "minRows": 1
+      },
+      "referenceSql": "SELECT InvoiceId, BillingCountry, Total,\n       AVG(Total) OVER (PARTITION BY BillingCountry) AS country_avg\nFROM Invoice;",
+      "hint": "PARTITION BY BillingCountry로 국가별 윈도우를 나눕니다.",
+      "summary": "AVG(...) OVER (PARTITION BY col)은 그룹 평균을 원본 행마다 붙입니다. GROUP BY와 달리 행 수가 줄지 않습니다.",
+      "practiceGuide": {
+        "tables": [
+          "Invoice"
+        ],
+        "steps": [
+          "Invoice; 테이블을 FROM에 사용"
+        ]
+      },
+      "eliceFormat": true
+    },
+    {
+      "id": "j0609-06",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "itemType": "choice",
+      "question": "조회 결과 개수를 제한할 때 SELECT 뒤에 쓰는 절은?",
+      "code": "SELECT * FROM book\nORDER BY price DESC\n____ 5;",
+      "answers": [
+        "LIMIT",
+        "limit"
+      ],
+      "hint": "상위 N개만 가져올 때 사용. Oracle은 ROWNUM/FETCH.",
+      "summary": "LIMIT n / OFFSET m. SQLite·MySQL·PostgreSQL에서 지원.",
+      "explanation": "강의 SQL 함수 단원: LIMIT으로 상위 N건 조회.",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "LIMIT",
+          "isCorrect": true,
+          "rationale": "LIMIT n / OFFSET m. SQLite·MySQL·PostgreSQL에서 지원."
+        },
+        {
+          "text": "OFFSET",
+          "isCorrect": false,
+          "rationale": "LIMIT n / OFFSET m."
+        },
+        {
+          "text": "TOP",
+          "isCorrect": false,
+          "rationale": "프로세스를 실시간 모니터링하는 명령입니다."
+        },
+        {
+          "text": "FETCH",
+          "isCorrect": false,
+          "rationale": "FETCH은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0609-07",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "itemType": "choice",
+      "question": "중복 행을 제거하고 고유한 값만 조회할 때 SELECT 뒤에 붙이는 키워드는?",
+      "code": "SELECT ____ country FROM Customer;",
+      "answers": [
+        "DISTINCT",
+        "distinct"
+      ],
+      "hint": "COUNT(DISTINCT col)과 함께 자주 씁니다.",
+      "summary": "DISTINCT는 결과 집합에서 중복 행을 제거합니다.",
+      "explanation": "강의 10 6/9 SQL 함수: DISTINCT 단원에서 다룹니다.",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ONLY",
+          "isCorrect": false,
+          "rationale": "ONLY은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "DISTINCT",
+          "isCorrect": true,
+          "rationale": "DISTINCT는 결과 집합에서 중복 행을 제거합니다."
+        },
+        {
+          "text": "GROUP BY",
+          "isCorrect": false,
+          "rationale": "SELECT의 비집계 컬럼은 GROUP BY에 포함되어야 합니다. 그룹별 SUM, AVG, COUNT 계산의 핵심입니다."
+        },
+        {
+          "text": "UNIQUE",
+          "isCorrect": false,
+          "rationale": "UNIQUE은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0609-08",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "itemType": "choice",
+      "question": "다중행 서브쿼리에서 '하나라도 만족'할 때 쓰는 연산자는?",
+      "code": "WHERE salary > ANY (SELECT salary FROM ...)",
+      "answers": [
+        "ANY",
+        "any"
+      ],
+      "hint": "IN과 유사하지만 비교 연산자와 함께 씁니다.",
+      "summary": "IN / ANY / ALL. ANY=하나라도, ALL=모두 만족.",
+      "explanation": "강의 10 6/9 SQL 함수: ANY 단원에서 다룹니다.",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ANY",
+          "isCorrect": true,
+          "rationale": "IN / ANY / ALL. ANY=하나라도, ALL=모두 만족."
+        },
+        {
+          "text": "ALL",
+          "isCorrect": false,
+          "rationale": "서브쿼리 모든 값과 비교합니다."
+        },
+        {
+          "text": "EXISTS",
+          "isCorrect": false,
+          "rationale": "EXISTS / NOT EXISTS는 반쪽 집합 검사에 효율적입니다. IN보다 NULL 처리에 유리한 경우가 있습니다."
+        },
+        {
+          "text": "IN",
+          "isCorrect": false,
+          "rationale": "IN (값목록 또는 서브쿼리) / NOT IN / ANY / ALL 등이 서브쿼리와 함께 쓰입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0611-06",
+      "day": "06/11",
+      "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+      "itemType": "choice",
+      "question": "JOIN 조건 없이 두 테이블의 모든 조합(카티션 곱)을 만드는 JOIN은?",
+      "answers": [
+        "CROSS JOIN",
+        "cross join"
+      ],
+      "hint": "ON 절이 없습니다. 행 수 = A행×B행.",
+      "summary": "CROSS JOIN은 모든 행 조합. INNER/LEFT와 달리 조건 없음.",
+      "explanation": "강의 12 6/11 JOIN 심화: CROSS JOIN 단원에서 다룹니다.",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "CROSS JOIN",
+          "isCorrect": true,
+          "rationale": "CROSS JOIN은 모든 행 조합. INNER/LEFT와 달리 조건 없음."
+        },
+        {
+          "text": "LEFT JOIN",
+          "isCorrect": false,
+          "rationale": "LEFT JOIN: 왼쪽 기준 전부 + 오른쪽 매칭. RIGHT JOIN은 반대. FULL OUTER는 양쪽 전부(SQLite 미지원)."
+        },
+        {
+          "text": "NATURAL JOIN",
+          "isCorrect": false,
+          "rationale": "같은 이름의 열을 자동으로 매칭해 조인합니다."
+        },
+        {
+          "text": "INNER JOIN",
+          "isCorrect": false,
+          "rationale": "INNER JOIN은 ON 조건을 만족하는 행 쌍만 반환합니다. CROSS JOIN은 카티션 곱입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0611-07",
+      "day": "06/11",
+      "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+      "itemType": "choice",
+      "question": "두 테이블에 같은 이름의 컬럼이 있을 때 등가 조인을 간단히 쓰는 절은?",
+      "code": "SELECT * FROM A JOIN B\n____(id);",
+      "answers": [
+        "USING",
+        "using"
+      ],
+      "hint": "ON A.id = B.id 대신 짧게 쓸 수 있습니다.",
+      "summary": "USING(col) / NATURAL JOIN. SQL Server는 USING 미지원.",
+      "explanation": "강의 12 6/11 JOIN 심화: USING 단원에서 다룹니다.",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ON",
+          "isCorrect": false,
+          "rationale": "JOIN ... ON 조건 / WHERE는 JOIN 결과에 추가 필터. 여러 JOIN을 연쇄할 수 있습니다."
+        },
+        {
+          "text": "USING",
+          "isCorrect": true,
+          "rationale": "USING(col) / NATURAL JOIN. SQL Server는 USING 미지원."
+        },
+        {
+          "text": "NATURAL",
+          "isCorrect": false,
+          "rationale": "USING(col) / NATURAL JOIN."
+        },
+        {
+          "text": "WHERE",
+          "isCorrect": false,
+          "rationale": "WHERE는 GROUP BY 이전 개별 행을 필터링합니다. HAVING은 그룹 집계 후, ON은 JOIN 조건에 씁니다."
+        }
+      ]
+    },
+    {
+      "id": "j0609-09",
+      "day": "06/09",
+      "section": "6/9 SQL 함수 & 서브쿼리",
+      "itemType": "choice",
+      "question": "SELECT 절 안에 넣어 한 행·한 값만 반환하는 서브쿼리를 무엇이라 부르나요?",
+      "answers": [
+        "스칼라 서브쿼리",
+        "scalar subquery",
+        "스칼라서브쿼리"
+      ],
+      "hint": "JOIN 없이 열처럼 값을 붙일 때 사용.",
+      "summary": "스칼라 서브쿼리는 SELECT 목록에 표현식처럼 포함됩니다.",
+      "explanation": "강의 예: (SELECT math FROM test WHERE ...) AS middle_avg",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "상관 서브쿼리",
+          "isCorrect": false,
+          "rationale": "상관 서브쿼리는 행마다 한 번씩 실행될 수 있어 비용이 큽니다. JOIN이나 윈도우 함수로 대체 가능한지 검토합니다."
+        },
+        {
+          "text": "다중행 서브쿼리",
+          "isCorrect": false,
+          "rationale": "스칼라(값 1개), 단일 행, 다중 행, 상관(correlated) 서브쿼리로 분류합니다. IN, EXISTS와 자주 결합됩니다."
+        },
+        {
+          "text": "인라인 뷰",
+          "isCorrect": false,
+          "rationale": "인라인 뷰은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "스칼라 서브쿼리",
+          "isCorrect": true,
+          "rationale": "스칼라 서브쿼리는 SELECT 목록에 표현식처럼 포함됩니다."
+        }
+      ]
+    },
+    {
+      "id": "j0612-07",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "itemType": "choice",
+      "question": "동점 시 다음 순위를 건너뛰지 않는 순위 함수는?",
+      "answers": [
+        "DENSE_RANK",
+        "dense_rank",
+        "DENSE_RANK()"
+      ],
+      "hint": "RANK는 1,1,3 식으로 건너뜁니다.",
+      "summary": "RANK / DENSE_RANK / ROW_NUMBER. PERCENT_RANK, NTILE도 분석에 사용.",
+      "explanation": "강의 13 6/12 그룹 함수: DENSE_RANK 단원에서 다룹니다.",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "NTILE",
+          "isCorrect": false,
+          "rationale": "결과를 N개 구간(버킷)으로 나눕니다."
+        },
+        {
+          "text": "RANK",
+          "isCorrect": false,
+          "rationale": "RANK / DENSE_RANK / ROW_NUMBER / PERCENT_RANK / CUME_DIST / NTILE 등이 순위·분포 분석에 쓰입니다."
+        },
+        {
+          "text": "DENSE_RANK",
+          "isCorrect": true,
+          "rationale": "RANK / DENSE_RANK / ROW_NUMBER. PERCENT_RANK, NTILE도 분석에 사용."
+        },
+        {
+          "text": "ROW_NUMBER",
+          "isCorrect": false,
+          "rationale": "ROW_NUMBER는 중복 없이 1,2,3…"
+        }
+      ]
+    },
+    {
+      "id": "j0612-08",
+      "day": "06/12",
+      "section": "6/12 그룹 함수 & 윈도우 함수",
+      "itemType": "choice",
+      "question": "이전 행·다음 행 값을 가져오는 윈도우 함수 두 개는?",
+      "answers": [
+        "LAG LEAD",
+        "LAG, LEAD",
+        "lag lead"
+      ],
+      "hint": "시계열·누적 비교에 유용합니다.",
+      "summary": "LAG(col, n) 이전 n번째 행, LEAD(col, n) 다음 n번째 행.",
+      "explanation": "강의 13 6/12 그룹 함수: LAG LEAD 단원에서 다룹니다.",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "FIRST LAST",
+          "isCorrect": false,
+          "rationale": "FIRST LAST은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "RANK DENSE_RANK",
+          "isCorrect": false,
+          "rationale": "RANK / DENSE_RANK / ROW_NUMBER / PERCENT_RANK / CUME_DIST / NTILE 등이 순위·분포 분석에 쓰입니다."
+        },
+        {
+          "text": "LAG LEAD",
+          "isCorrect": true,
+          "rationale": "LAG(col, n) 이전 n번째 행, LEAD(col, n) 다음 n번째 행."
+        },
+        {
+          "text": "LEAD LAG",
+          "isCorrect": false,
+          "rationale": "다음 행 값을 가져오는 윈도우 함수입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0601-06",
+      "day": "06/01",
+      "section": "6/1 파이썬 기본·중급 문법",
+      "itemType": "python",
+      "question": "실습: 몫(//)과 나머지(%) 연산",
+      "instructions": "a = 13, b = 5 일 때 몫 q와 나머지 r을 구해 print(q, r)로 2 3을 출력하세요.",
+      "starterCode": "a = 13\nb = 5\n# q, r을 계산하세요\n\nprint(q, r)",
+      "validate": {
+        "patterns": [
+          "//",
+          "%"
+        ],
+        "assertCode": "assert q == 2 and r == 3"
+      },
+      "referenceCode": "a = 13\nb = 5\nq = a // b\nr = a % b\nprint(q, r)",
+      "hint": "//는 몫, %는 나머지 연산자입니다.",
+      "summary": "기초 자료형 강의: //, %, ** 연산자.",
+      "practiceGuide": {
+        "steps": [
+          "a를 b로 나눈 몫을 구합니다",
+          "나머지를 구합니다",
+          "두 값을 출력합니다"
+        ]
+      },
+      "eliceFormat": true
+    },
+    {
+      "id": "j0604-06",
+      "day": "06/04",
+      "section": "6/4 파이썬 라이브러리 활용",
+      "itemType": "choice",
+      "question": "DataFrame을 컬럼 기준으로 묶어 집계할 때 쓰는 pandas 메서드는?",
+      "code": "df.____('category')['price'].mean()",
+      "answers": [
+        "groupby",
+        "groupby()"
+      ],
+      "hint": "SQL의 GROUP BY와 대응됩니다.",
+      "summary": "df.groupby('col').agg(...) / .mean() / .sum() 등.",
+      "explanation": "강의 07 6/4 파이썬 라이브러리 활용: groupby 단원에서 다룹니다.",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "apply",
+          "isCorrect": false,
+          "rationale": "apply은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "groupby",
+          "isCorrect": true,
+          "rationale": "df.groupby('col').agg(...) / .mean() / .sum() 등."
+        },
+        {
+          "text": "pivot",
+          "isCorrect": false,
+          "rationale": "pivot은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "merge",
+          "isCorrect": false,
+          "rationale": "DBMS별 확장 문법일 수 있으나, 기본 '연결' 절은 JOIN입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0610-06",
+      "day": "06/10",
+      "section": "6/10 집합연산자 & 계층형 질의",
+      "itemType": "choice",
+      "question": "집합 연산 중 두 쿼리 결과의 모든 조합(카티션 곱)에 해당하는 SQL 연산은?",
+      "answers": [
+        "CROSS JOIN",
+        "cross join",
+        "카티션 곱"
+      ],
+      "hint": "UNION/INTERSECT/EXCEPT와 다른 종류의 연산입니다.",
+      "summary": "집합연산자 PDF: UNION, INTERSECT, EXCEPT, CROSS JOIN.",
+      "explanation": "강의 11 6/10 집합연산자: CROSS JOIN 단원에서 다룹니다.",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "LEFT JOIN",
+          "isCorrect": false,
+          "rationale": "LEFT JOIN: 왼쪽 기준 전부 + 오른쪽 매칭. RIGHT JOIN은 반대. FULL OUTER는 양쪽 전부(SQLite 미지원)."
+        },
+        {
+          "text": "NATURAL JOIN",
+          "isCorrect": false,
+          "rationale": "같은 이름의 열을 자동으로 매칭해 조인합니다."
+        },
+        {
+          "text": "CROSS JOIN",
+          "isCorrect": true,
+          "rationale": "집합연산자 PDF: UNION, INTERSECT, EXCEPT, CROSS JOIN."
+        },
+        {
+          "text": "INNER JOIN",
+          "isCorrect": false,
+          "rationale": "INNER JOIN은 ON 조건을 만족하는 행 쌍만 반환합니다. CROSS JOIN은 카티션 곱입니다."
+        }
+      ]
+    },
+    {
+      "id": "j0608-sql-02",
+      "day": "06/08",
+      "section": "6/8 SQL 개요 & DML",
+      "itemType": "sql",
+      "question": "실습: book 테이블에서 가격 내림차순 상위 2권",
+      "instructions": "book 테이블에서 title, price를 price 내림차순으로 정렬하고 상위 2건만 조회하세요.",
+      "sandbox": "book",
+      "starterSql": "-- 아래는 book 테이블 구조입니다. 테이블을 수정할 필요는 없습니다.\nPRAGMA table_info(book);\n\nSELECT * FROM book;\n\n-- book 테이블에서 title, price를 price 내림차순으로 정렬하고 상위 2건만 조회하세요.\nSELECT /* TODO: 컬럼·함수 */\nFROM book\nORDER BY /* TODO */\nLIMIT /* TODO */\n;\n",
+      "validate": {
+        "patterns": [
+          "order by",
+          "limit",
+          "desc"
+        ],
+        "minRows": 1
+      },
+      "referenceSql": "SELECT title, price FROM book ORDER BY price DESC LIMIT 2;",
+      "hint": "ORDER BY price DESC LIMIT 2",
+      "summary": "정렬 + LIMIT으로 Top-N 조회.",
+      "practiceGuide": {
+        "tables": [
+          "book"
+        ],
+        "steps": [
+          "book 테이블을 FROM에 사용"
+        ]
+      },
+      "eliceFormat": true
+    }
+  ]
+};

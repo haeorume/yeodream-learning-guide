@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# Local verify / temp outputs
+tools/viz_verify_out/
+
+# Optional large extract (regenerate with extract_pdf_notes.py)
+# data/_pdf_extract.txt

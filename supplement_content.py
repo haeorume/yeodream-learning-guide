@@ -1,0 +1,533 @@
+# -*- coding: utf-8 -*-
+"""강의 PDF 추출 내용 기반 문제 세트 보강"""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).parent
+DATA = ROOT / "data"
+
+
+def load_json(name):
+    return json.loads((DATA / name).read_text(encoding="utf-8"))
+
+
+def save_json(name, data):
+    (DATA / name).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+BASIC_COURSE = {
+    "meta": {
+        "id": "basic-course",
+        "title": "공통기초 종합 (IT·리눅스·네트워크)",
+        "description": "이어드림스쿨 6기 1~3주차 강의자료(PDF) 핵심 개념 복습",
+    },
+    "items": [
+        {
+            "id": "bc-it-01",
+            "section": "01 IT 리터러시",
+            "itemType": "typing",
+            "question": "웹에서 서버와 데이터를 주고받을 때 자주 쓰는 아키텍처 스타일의 약자는? (Representational State Transfer)",
+            "answers": ["REST", "REST API", "rest"],
+            "hint": "HTTP 메서드로 리소스를 다루는 API 설계 방식입니다.",
+            "summary": "REST API는 URL로 리소스를 표현하고 GET/POST/PUT/DELETE로 조작합니다. JSON이 많이 쓰입니다.",
+            "explanation": "데이터베이스 강의에서 REST API는 DB 데이터를 HTTP로 노출하는 패턴으로 소개됩니다.",
+        },
+        {
+            "id": "bc-it-02",
+            "section": "01 IT 리터러시",
+            "itemType": "typing",
+            "question": "내가 필요한 기능만 가져다 쓰는 재사용 코드 묶음을 무엇이라 부르나요?",
+            "answers": ["라이브러리", "library", "Library"],
+            "hint": "프레임워크와 달리 흐름 제어는 내 코드가 합니다.",
+            "summary": "라이브러리는 함수·클래스 모음(예: pandas, requests). 프레임워크는 앱 골격을 제공하고 내 코드가 그 안에서 동작합니다.",
+            "explanation": "강의 비유: 라이브러리=도구 상자, 프레임워크=이미 짜인 요리 레시피 틀.",
+        },
+        {
+            "id": "bc-it-02b",
+            "section": "01 IT 리터러시",
+            "itemType": "choice",
+            "question": "애플리케이션의 전체 구조와 흐름을 정해 주고, 개발자가 그 안에 코드를 끼워 넣는 방식은?",
+            "choicePrompt": "라이브러리와 구분되는 개념을 고르세요.",
+            "options": [
+                {"text": "프레임워크", "isCorrect": True, "rationale": "제어의 역전(IoC)—프레임워크가 흐름을 주도합니다."},
+                {"text": "라이브러리", "isCorrect": False, "rationale": "필요할 때 호출하는 도구 모음입니다."},
+                {"text": "운영체제", "isCorrect": False, "rationale": "하드웨어 위에서 프로그램을 실행하는 계층입니다."},
+                {"text": "프로토콜", "isCorrect": False, "rationale": "통신 규약입니다."},
+            ],
+            "summary": "Django, Flask, React 등은 프레임워크 예시입니다.",
+            "explanation": "라이브러리는 내가 부르고, 프레임워크는 내 코드를 불러옵니다.",
+        },
+        {
+            "id": "bc-it-03",
+            "section": "01 IT 리터러시",
+            "itemType": "typing",
+            "question": "검색엔진 최적화의 영문 약자는?",
+            "answers": ["SEO", "seo", "Search Engine Optimization"],
+            "hint": "Search Engine Optimization",
+            "summary": "SEO는 검색 결과 상위 노출을 위한 기술·콘텐츠·구조 최적화입니다.",
+            "explanation": "메타 태그, 시맨틱 HTML, 페이지 속도, 모바일 친화성 등이 요소입니다.",
+        },
+        {
+            "id": "bc-it-04",
+            "section": "01 IT 리터러시",
+            "itemType": "typing",
+            "question": "관계형 데이터베이스에서 행을 저장하는 단위(표)를 무엇이라 부르나요?",
+            "answers": ["테이블", "table", "Table"],
+            "hint": "열(column)과 행(row)으로 구성됩니다.",
+            "summary": "RDBMS는 테이블·행·열·키(PK/FK)로 데이터를 구조화합니다. SQL로 조회·수정합니다.",
+            "explanation": "REST API는 보통 이러한 테이블 데이터를 JSON으로 반환합니다.",
+        },
+        {
+            "id": "bc-os-01",
+            "section": "02 리눅스·운영체제",
+            "itemType": "typing",
+            "question": "리눅스에서 메모리에 적재되어 실행 중인 프로그램 단위는?",
+            "answers": ["프로세스", "process", "Process"],
+            "hint": "PID로 식별합니다.",
+            "summary": "프로세스는 코드·데이터·힙·스택 영역을 갖습니다. PID 1은 init, 부모-자식 관계가 있습니다.",
+            "explanation": "ps, kill, job 명령으로 프로세스를 확인·제어합니다.",
+        },
+        {
+            "id": "bc-os-02",
+            "section": "02 리눅스·운영체제",
+            "itemType": "typing",
+            "question": "실행 중인 프로세스 목록을 보는 리눅스 명령어는?",
+            "answers": ["ps", "PS"],
+            "hint": "process status의 약자입니다. ps -ef, ps -aux 옵션이 자주 쓰입니다.",
+            "summary": "ps -ef: 전체 프로세스 상세 / ps -aux: CPU·메모리 사용량 포함.",
+            "explanation": "kill 명령은 PID를 지정해 프로세스를 종료합니다.",
+        },
+        {
+            "id": "bc-os-03",
+            "section": "02 리눅스·운영체제",
+            "itemType": "typing",
+            "question": "프로세스를 강제 종료할 때 kill 명령에 주는 시그널 번호는?",
+            "code": "kill -____ PID",
+            "answers": ["9", "-9"],
+            "hint": "SIGKILL. 정상 종료는 -15(SIGTERM)입니다.",
+            "summary": "kill -9는 강제 종료, kill -15는 정상 종료 요청. kill -l로 시그널 목록 확인.",
+            "explanation": "응답 없는 프로세스를 강제로 끝낼 때 -9를 사용합니다.",
+        },
+        {
+            "id": "bc-os-04",
+            "section": "02 리눅스·운영체제",
+            "itemType": "typing",
+            "question": "지정된 시간에 주기적으로 명령을 실행하도록 예약하는 리눅스 도구는?",
+            "answers": ["cron", "crontab", "Cron"],
+            "hint": "crontab -e 로 편집, crontab -l 로 목록 확인.",
+            "summary": "crontab 형식: 분 시 일 월 요일 명령. at은 1회 예약, cron은 반복 예약.",
+            "explanation": "백업 스크립트·로그 정리 등 자동화에 필수입니다.",
+        },
+        {
+            "id": "bc-os-05",
+            "section": "02 리눅스·운영체제",
+            "itemType": "typing",
+            "question": "원격 서버에 암호화된 연결로 접속할 때 쓰는 프로토콜 약자는?",
+            "answers": ["SSH", "ssh", "Secure Shell"],
+            "hint": "Telnet과 달리 통신이 암호화됩니다.",
+            "summary": "ssh user@host 형태로 접속. openssh-server 패키지가 서버에 필요합니다.",
+            "explanation": "Telnet은 평문 전송이라 비밀번호 노출 위험이 있습니다.",
+        },
+        {
+            "id": "bc-os-06",
+            "section": "02 리눅스·운영체제",
+            "itemType": "typing",
+            "question": "우분투에서 패키지를 설치할 때 쓰는 패키지 관리 명령은?",
+            "code": "sudo apt ____ 패키지명",
+            "answers": ["install", "apt install"],
+            "hint": "데비안 계열 .deb 패키지 관리자입니다.",
+            "summary": "apt install, apt update, apt upgrade. 레드햇 계열은 yum/dnf.",
+            "explanation": "openssh-server, python3 등을 apt로 설치합니다.",
+        },
+        {
+            "id": "bc-os-07",
+            "section": "02 리눅스·운영체제",
+            "itemType": "typing",
+            "question": "리눅스에서 현재 작업 디렉터리 경로를 출력하는 명령어는?",
+            "answers": ["pwd", "PWD"],
+            "hint": "print working directory",
+            "summary": "pwd, ls, cd, whoami, passwd 등이 기초 명령입니다. Shell(bash)이 사용자와 커널 사이를 연결합니다.",
+            "explanation": "CLI 환경에서 파일·디렉터리 탐색의 출발점입니다.",
+        },
+        {
+            "id": "bc-os-08",
+            "section": "02 리눅스·운영체제",
+            "itemType": "choice",
+            "question": "프로세스 메모리 구성 중 함수의 지역 변수·매개변수가 저장되는 영역은?",
+            "choicePrompt": "스택 영역의 역할을 고르세요.",
+            "options": [
+                {"text": "스택 영역", "isCorrect": True, "rationale": "함수 호출 시 지역 변수·복귀 주소가 쌓입니다."},
+                {"text": "힙 영역", "isCorrect": False, "rationale": "동적 메모리 할당(malloc 등) 영역입니다."},
+                {"text": "코드 영역", "isCorrect": False, "rationale": "실행 가능한 프로그램 코드가 위치합니다."},
+                {"text": "BSS 영역", "isCorrect": False, "rationale": "초기화되지 않은 전역·정적 변수 영역입니다."},
+            ],
+            "summary": "코드·데이터·BSS·힙·스택으로 프로세스 메모리가 구분됩니다.",
+            "explanation": "강의 퀴즈: 프로세스 메모리 구성 핵심 항목.",
+        },
+        {
+            "id": "bc-net-01",
+            "section": "03 네트워크·HTTP",
+            "itemType": "typing",
+            "question": "TCP/IP 모델에서 IP 주소·패킷 라우팅을 담당하는 계층은? (4계층 모델 기준)",
+            "answers": ["인터넷 계층", "네트워크 계층", "internet layer", "3계층", "3계층 네트워크"],
+            "hint": "OSI 7계층의 3계층(네트워크)에 대응합니다.",
+            "summary": "TCP/IP 4계층: 네트워크 액세스·인터넷·전송·응용. IP는 인터넷 계층, TCP/UDP는 전송 계층.",
+            "explanation": "패킷 단위로 목적지까지 경로를 찾습니다.",
+        },
+        {
+            "id": "bc-net-02",
+            "section": "03 네트워크·HTTP",
+            "itemType": "typing",
+            "question": "신뢰성 있는 연결 지향 전송을 제공하는 4계층 프로토콜은?",
+            "answers": ["TCP", "tcp"],
+            "hint": "UDP와 대비됩니다. 재전송·흐름 제어가 있습니다.",
+            "summary": "TCP: 연결 지향·신뢰성. UDP: 비연결·빠름(스트리밍·DNS 등). HTTP는 보통 TCP 위에서 동작.",
+            "explanation": "전송 계층에서 포트 번호로 구분합니다.",
+        },
+        {
+            "id": "bc-net-03",
+            "section": "03 네트워크·HTTP",
+            "itemType": "typing",
+            "question": "HTTP에서 새 리소스를 등록할 때 쓰는 메서드는?",
+            "answers": ["POST", "post"],
+            "hint": "CRUD 중 Create에 해당. GET은 조회, PUT은 수정, DELETE는 삭제.",
+            "summary": "GET 조회 / POST 등록 / PUT 수정 / DELETE 삭제. REST API 설계의 기본.",
+            "explanation": "HTTP는 무상태(stateless) 프로토콜입니다.",
+        },
+        {
+            "id": "bc-net-04",
+            "section": "03 네트워크·HTTP",
+            "itemType": "typing",
+            "question": "HTTP 요청이 성공했을 때 서버가 돌려주는 대표 상태 코드는?",
+            "answers": ["200", "200 OK", "OK"],
+            "hint": "2xx는 성공 응답입니다.",
+            "summary": "200 OK 성공 / 201 Created 생성 / 301 Moved Permanently / 404 Not Found / 500 Internal Server Error.",
+            "explanation": "상태 코드는 서버가 요청 처리 결과를 숫자로 알려줍니다.",
+        },
+        {
+            "id": "bc-net-05",
+            "section": "03 네트워크·HTTP",
+            "itemType": "typing",
+            "question": "요청한 페이지를 찾을 수 없을 때의 HTTP 상태 코드는?",
+            "answers": ["404", "404 Not Found"],
+            "hint": "4xx는 클라이언트 오류입니다.",
+            "summary": "404 Not Found / 403 Forbidden / 401 Unauthorized / 400 Bad Request.",
+            "explanation": "URL 오타·삭제된 페이지에서 자주 봅니다.",
+        },
+        {
+            "id": "bc-net-06",
+            "section": "03 네트워크·HTTP",
+            "itemType": "typing",
+            "question": "회사 내부 직원만 접근하는 사설 네트워크를 무엇이라 부르나요?",
+            "answers": ["인트라넷", "intranet", "Intranet"],
+            "hint": "인터넷(공개)과 대비됩니다. Extra는 협력사·고객까지 허용.",
+            "summary": "인트라넷=내부 전용 / 엑스트라넷=제한적 외부 허용 / 인터넷=전 세계 공개.",
+            "explanation": "보안·내부 정보 보호가 인트라넷 구축 이유입니다.",
+        },
+        {
+            "id": "bc-net-07",
+            "section": "03 네트워크·HTTP",
+            "itemType": "typing",
+            "question": "통신에 필요한 형식·규칙·약속을 정의한 것을 영어로?",
+            "answers": ["protocol", "Protocol", "프로토콜"],
+            "hint": "HTTP, TCP, IP 모두 이것입니다.",
+            "summary": "프로토콜은 구문·의미·타이밍을 규정합니다. 캡슐화로 계층별 헤더가 붙습니다.",
+            "explanation": "네트워크 아키텍처는 프로토콜의 집합입니다.",
+        },
+        {
+            "id": "bc-net-08",
+            "section": "03 네트워크·HTTP",
+            "itemType": "choice",
+            "question": "브라우저가 다른 출처(origin)의 리소스 요청을 제한하는 보안 정책 약자는?",
+            "choicePrompt": "Cross-Origin Resource Sharing",
+            "options": [
+                {"text": "CORS", "isCorrect": True, "rationale": "서버가 Access-Control-Allow-Origin 등으로 허용할 수 있습니다."},
+                {"text": "DNS", "isCorrect": False, "rationale": "도메인 이름 해석 시스템입니다."},
+                {"text": "NAT", "isCorrect": False, "rationale": "사설 IP를 공인 IP로 변환합니다."},
+                {"text": "SSL", "isCorrect": False, "rationale": "암호화 통신 기술입니다."},
+            ],
+            "summary": "프론트엔드에서 API 호출 시 CORS 오류를 자주 만납니다.",
+            "explanation": "강의 03 네트워크: CORS 단원에서 다룹니다.",
+        },
+        {
+            "id": "bc-py-01",
+            "section": "04 파이썬 기초 문법",
+            "itemType": "typing",
+            "question": "터미널에서 사용자 입력을 받는 파이썬 내장 함수는?",
+            "code": "name = ____(\"이름을 입력하세요: \")",
+            "answers": ["input", "input()"],
+            "hint": "print의 반대—컴퓨터가 사용자에게서 값을 받습니다.",
+            "summary": "input()은 항상 문자열을 반환합니다. int(input())으로 숫자 변환이 필요할 수 있습니다.",
+            "explanation": "도레미 파이썬 vol.1 조건문 단원에서 소개.",
+        },
+        {
+            "id": "bc-py-02",
+            "section": "04 파이썬 기초 문법",
+            "itemType": "typing",
+            "question": "13을 5로 나눈 몫을 구하는 파이썬 연산자는?",
+            "code": "print(13 ____ 5)  # 2",
+            "answers": ["//"],
+            "hint": "일반 / 는 실수 나눗셈, 이 연산자는 정수 몫입니다.",
+            "summary": "// 몫, % 나머지, ** 제곱. / 는 float 결과.",
+            "explanation": "기초 자료형 강의의 특수 연산자.",
+        },
+        {
+            "id": "bc-py-03",
+            "section": "04 파이썬 기초 문법",
+            "itemType": "typing",
+            "question": "리스트 beta에서 인덱스 2 이상 5 미만을 가져오는 슬라이싱 표현은?",
+            "code": "beta = [2, 4, 6, 8, 10, 12, 14]\nprint(beta[____])  # [6, 8, 10]",
+            "answers": ["2:5", "2 : 5"],
+            "hint": "시작:끝 형태, 끝 인덱스는 포함하지 않습니다.",
+            "summary": "슬라이싱 [start:end:step]. 문자열에도 동일하게 적용됩니다.",
+            "explanation": "인덱스는 0부터 시작합니다.",
+        },
+        {
+            "id": "bc-ai-01",
+            "section": "05 생성형 AI·Streamlit",
+            "itemType": "typing",
+            "question": "Python으로 웹 대시보드·앱 UI를 빠르게 만드는 라이브러리는?",
+            "answers": ["Streamlit", "streamlit"],
+            "hint": "st.title(), st.write() 등으로 UI를 구성합니다.",
+            "summary": "Streamlit은 데이터 분석 결과를 웹앱으로 공유할 때 유용합니다. 강의 08~09 단원.",
+            "explanation": "Antigravity·Kaggle 데이터 분석 후 시각화·배포에 활용.",
+        },
+    ],
+}
+
+JUNE_ADDITIONS = [
+    {
+        "id": "j0609-06",
+        "day": "06/09",
+        "section": "6/9 SQL 함수 & 서브쿼리",
+        "itemType": "typing",
+        "question": "조회 결과 개수를 제한할 때 SELECT 뒤에 쓰는 절은?",
+        "code": "SELECT * FROM book\nORDER BY price DESC\n____ 5;",
+        "answers": ["LIMIT", "limit"],
+        "hint": "상위 N개만 가져올 때 사용. Oracle은 ROWNUM/FETCH.",
+        "summary": "LIMIT n / OFFSET m. SQLite·MySQL·PostgreSQL에서 지원.",
+        "explanation": "강의 SQL 함수 단원: LIMIT으로 상위 N건 조회.",
+    },
+    {
+        "id": "j0609-07",
+        "day": "06/09",
+        "section": "6/9 SQL 함수 & 서브쿼리",
+        "itemType": "typing",
+        "question": "중복 행을 제거하고 고유한 값만 조회할 때 SELECT 뒤에 붙이는 키워드는?",
+        "code": "SELECT ____ country FROM Customer;",
+        "answers": ["DISTINCT", "distinct"],
+        "hint": "COUNT(DISTINCT col)과 함께 자주 씁니다.",
+        "summary": "DISTINCT는 결과 집합에서 중복 행을 제거합니다.",
+        "explanation": "GROUP BY와 달리 집계 없이 유일 값 목록만 필요할 때.",
+    },
+    {
+        "id": "j0609-08",
+        "day": "06/09",
+        "section": "6/9 SQL 함수 & 서브쿼리",
+        "itemType": "typing",
+        "question": "다중행 서브쿼리에서 '하나라도 만족'할 때 쓰는 연산자는?",
+        "code": "WHERE salary > ANY (SELECT salary FROM ...)",
+        "answers": ["ANY", "any"],
+        "hint": "IN과 유사하지만 비교 연산자와 함께 씁니다.",
+        "summary": "IN / ANY / ALL. ANY=하나라도, ALL=모두 만족.",
+        "explanation": "강의 서브쿼리 PDF: 다중행 연산자 표 참고.",
+    },
+    {
+        "id": "j0611-06",
+        "day": "06/11",
+        "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+        "itemType": "typing",
+        "question": "JOIN 조건 없이 두 테이블의 모든 조합(카티션 곱)을 만드는 JOIN은?",
+        "answers": ["CROSS JOIN", "cross join"],
+        "hint": "ON 절이 없습니다. 행 수 = A행×B행.",
+        "summary": "CROSS JOIN은 모든 행 조합. INNER/LEFT와 달리 조건 없음.",
+        "explanation": "JOIN 심화 강의: CROSS JOIN 정의.",
+    },
+    {
+        "id": "j0611-07",
+        "day": "06/11",
+        "section": "6/11 JOIN 심화 & 서브쿼리 심화",
+        "itemType": "typing",
+        "question": "두 테이블에 같은 이름의 컬럼이 있을 때 등가 조인을 간단히 쓰는 절은?",
+        "code": "SELECT * FROM A JOIN B\n____(id);",
+        "answers": ["USING", "using"],
+        "hint": "ON A.id = B.id 대신 짧게 쓸 수 있습니다.",
+        "summary": "USING(col) / NATURAL JOIN. SQL Server는 USING 미지원.",
+        "explanation": "JOIN 심화: USING 조건절.",
+    },
+    {
+        "id": "j0609-09",
+        "day": "06/09",
+        "section": "6/9 SQL 함수 & 서브쿼리",
+        "itemType": "typing",
+        "question": "SELECT 절 안에 넣어 한 행·한 값만 반환하는 서브쿼리를 무엇이라 부르나요?",
+        "answers": ["스칼라 서브쿼리", "scalar subquery", "스칼라서브쿼리"],
+        "hint": "JOIN 없이 열처럼 값을 붙일 때 사용.",
+        "summary": "스칼라 서브쿼리는 SELECT 목록에 표현식처럼 포함됩니다.",
+        "explanation": "강의 예: (SELECT math FROM test WHERE ...) AS middle_avg",
+    },
+    {
+        "id": "j0612-07",
+        "day": "06/12",
+        "section": "6/12 그룹 함수 & 윈도우 함수",
+        "itemType": "typing",
+        "question": "동점 시 다음 순위를 건너뛰지 않는 순위 함수는?",
+        "answers": ["DENSE_RANK", "dense_rank", "DENSE_RANK()"],
+        "hint": "RANK는 1,1,3 식으로 건너뜁니다.",
+        "summary": "RANK / DENSE_RANK / ROW_NUMBER. PERCENT_RANK, NTILE도 분석에 사용.",
+        "explanation": "윈도우 함수 심화: 순위 함수 비교.",
+    },
+    {
+        "id": "j0612-08",
+        "day": "06/12",
+        "section": "6/12 그룹 함수 & 윈도우 함수",
+        "itemType": "typing",
+        "question": "이전 행·다음 행 값을 가져오는 윈도우 함수 두 개는?",
+        "answers": ["LAG LEAD", "LAG, LEAD", "lag lead"],
+        "hint": "시계열·누적 비교에 유용합니다.",
+        "summary": "LAG(col, n) 이전 n번째 행, LEAD(col, n) 다음 n번째 행.",
+        "explanation": "그룹 함수 & 윈도우 함수 강의 보조 개념.",
+    },
+    {
+        "id": "j0601-06",
+        "day": "06/01",
+        "section": "6/1 파이썬 기본·중급 문법",
+        "itemType": "python",
+        "question": "실습: 몫(//)과 나머지(%) 연산",
+        "instructions": "a = 13, b = 5 일 때 몫 q와 나머지 r을 구해 print(q, r)로 2 3을 출력하세요.",
+        "starterCode": "a = 13\nb = 5\n# q, r을 계산하세요\n\nprint(q, r)",
+        "validate": {
+            "patterns": ["//", "%"],
+            "assertCode": "assert q == 2 and r == 3",
+        },
+        "referenceCode": "a = 13\nb = 5\nq = a // b\nr = a % b\nprint(q, r)",
+        "hint": "//는 몫, %는 나머지 연산자입니다.",
+        "summary": "기초 자료형 강의: //, %, ** 연산자.",
+    },
+    {
+        "id": "j0604-06",
+        "day": "06/04",
+        "section": "6/4 파이썬 라이브러리 활용",
+        "itemType": "typing",
+        "question": "DataFrame을 컬럼 기준으로 묶어 집계할 때 쓰는 pandas 메서드는?",
+        "code": "df.____('category')['price'].mean()",
+        "answers": ["groupby", "groupby()"],
+        "hint": "SQL의 GROUP BY와 대응됩니다.",
+        "summary": "df.groupby('col').agg(...) / .mean() / .sum() 등.",
+        "explanation": "라이브러리 활용 강의: pandas 집계 패턴.",
+    },
+    {
+        "id": "j0610-06",
+        "day": "06/10",
+        "section": "6/10 집합연산자 & 계층형 질의",
+        "itemType": "typing",
+        "question": "집합 연산 중 두 쿼리 결과의 모든 조합(카티션 곱)에 해당하는 SQL 연산은?",
+        "answers": ["CROSS JOIN", "cross join", "카티션 곱"],
+        "hint": "UNION/INTERSECT/EXCEPT와 다른 종류의 연산입니다.",
+        "summary": "집합연산자 PDF: UNION, INTERSECT, EXCEPT, CROSS JOIN.",
+        "explanation": "STANDARD SQL 관계형 대수의 일반 집합 연산.",
+    },
+    {
+        "id": "j0608-sql-02",
+        "day": "06/08",
+        "section": "6/8 SQL 개요 & DML",
+        "itemType": "sql",
+        "question": "실습: book 테이블에서 가격 내림차순 상위 2권",
+        "instructions": "book 테이블에서 title, price를 price 내림차순으로 정렬하고 상위 2건만 조회하세요.",
+        "sandbox": "book",
+        "starterSql": "SELECT title, price\nFROM book\n-- ORDER BY ... LIMIT ...",
+        "validate": {"patterns": ["order by", "limit", "desc"], "minRows": 1},
+        "referenceSql": "SELECT title, price FROM book ORDER BY price DESC LIMIT 2;",
+        "hint": "ORDER BY price DESC LIMIT 2",
+        "summary": "정렬 + LIMIT으로 Top-N 조회.",
+    },
+]
+
+NETWORK_ADDITIONS = [
+    {
+        "id": "net-004",
+        "section": "03 네트워크·HTTP",
+        "itemType": "typing",
+        "question": "OSI 7계층 중 전송 계층(4계층)에서 신뢰성 없이 빠르게 보내는 프로토콜은?",
+        "answers": ["UDP", "udp"],
+        "hint": "TCP의 반대. 영상·게임·DNS에 활용.",
+        "summary": "TCP 연결 지향 / UDP 비연결. 둘 다 4계층(전송).",
+        "explanation": "인터넷과 HTTP 강의: TCP/IP 전송 계층.",
+    },
+    {
+        "id": "net-005",
+        "section": "03 네트워크·HTTP",
+        "itemType": "typing",
+        "question": "HTTPS에서 사용하는 기본 포트 번호는?",
+        "answers": ["443", "443번"],
+        "hint": "HTTP는 80번.",
+        "summary": "HTTP 80 / HTTPS 443 / SSH 22 / FTP 21.",
+        "explanation": "TLS로 암호화된 HTTP 통신.",
+    },
+    {
+        "id": "net-006",
+        "section": "02 리눅스·운영체제",
+        "itemType": "typing",
+        "question": "리눅스 커널과 사용자 사이에서 명령을 해석하는 프로그램은?",
+        "answers": ["셸", "shell", "Shell", "bash"],
+        "hint": "Bourne Again Shell이 리눅스 기본.",
+        "summary": "Shell → Kernel → Hardware 구조. bash가 기본 셸.",
+        "explanation": "리눅스의 세계로 강의: Shell 개념.",
+    },
+    {
+        "id": "net-007",
+        "section": "03 네트워크·HTTP",
+        "itemType": "choice",
+        "question": "HTTP 301 Moved Permanently의 의미는?",
+        "choicePrompt": "3xx 리다이렉션 코드",
+        "options": [
+            {"text": "요청한 페이지가 새 URL로 영구 이동했다", "isCorrect": True, "rationale": "검색엔진이 새 URL로 인덱싱을 옮깁니다."},
+            {"text": "서버 내부 오류가 발생했다", "isCorrect": False, "rationale": "5xx 계열입니다."},
+            {"text": "요청이 성공했다", "isCorrect": False, "rationale": "200번대입니다."},
+            {"text": "인증이 필요하다", "isCorrect": False, "rationale": "401 Unauthorized 등입니다."},
+        ],
+        "summary": "301 영구 / 302·307 일시 리다이렉션.",
+        "explanation": "상태코드 I·II 강의 내용.",
+    },
+    {
+        "id": "net-008",
+        "section": "01 IT 리터러시",
+        "itemType": "typing",
+        "question": "컴퓨터가 이해하는 0과 1의 최소 정보 단위는?",
+        "answers": ["비트", "bit", "Bit"],
+        "hint": "8개가 모이면 바이트(byte).",
+        "summary": "비트(bit) → 바이트(byte) → KB/MB/GB. 데이터는 결국 이진수로 저장·처리됩니다.",
+        "explanation": "IT 리터러시·컴퓨터의 이해 단원.",
+    },
+]
+
+
+def merge_items(data, additions):
+    ids = {i["id"] for i in data["items"]}
+    added = 0
+    for item in additions:
+        if item["id"] not in ids:
+            data["items"].append(item)
+            added += 1
+    return added
+
+
+def main():
+    save_json("basic-course.json", BASIC_COURSE)
+    print(f"basic-course.json: {len(BASIC_COURSE['items'])} items")
+
+    june = load_json("june-review.json")
+    n = merge_items(june, JUNE_ADDITIONS)
+    june["meta"]["description"] = "파이썬·SQL·IT기초 — 6월 복습 + 강의자료 보강"
+    save_json("june-review.json", june)
+    print(f"june-review.json: +{n} items, total {len(june['items'])}")
+
+    net = load_json("it-network.json")
+    n2 = merge_items(net, NETWORK_ADDITIONS)
+    net["meta"]["description"] = "OSI, TCP/IP, HTTP, 리눅스·IT 기초 (강의자료 반영)"
+    save_json("it-network.json", net)
+    print(f"it-network.json: +{n2} items, total {len(net['items'])}")
+
+
+if __name__ == "__main__":
+    main()

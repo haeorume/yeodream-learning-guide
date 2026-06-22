@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "id": "sql-dml",
+    "title": "SQL DML 실전",
+    "description": "SELECT, INSERT, UPDATE, DELETE 핵심 문법을 선택형·실습으로 익히기"
+  },
+  "items": [
+    {
+      "id": "sql-001",
+      "section": "04 데이터베이스",
+      "question": "book 테이블에서 책 ID(id)가 3인 데이터의 모든 컬럼을 조회합니다.\n빈칸에 들어갈 SQL 절은?",
+      "code": "SELECT * FROM book (        ) id = 3;",
+      "answers": [
+        "WHERE"
+      ],
+      "hint": "조회할 데이터에 '조건'을 걸 때 쓰는 가장 대표적인 키워드를 생각해보세요.",
+      "summary": "WHERE 절은 SELECT 결과에서 특정 행만 걸러낼 때 사용합니다. GROUP BY 이후 집계 결과를 거르는 것은 HAVING, JOIN 조건은 ON을 씁니다.",
+      "explanation": "WHERE는 행(row) 단위 필터링입니다. HAVING은 GROUP BY로 묶인 그룹에, ON은 두 테이블을 연결할 때 사용합니다.",
+      "options": [
+        {
+          "text": "HAVING",
+          "isCorrect": false,
+          "rationale": "집계 그룹 결과 필터링용입니다."
+        },
+        {
+          "text": "WHERE",
+          "isCorrect": true,
+          "rationale": "행 단위 조건 필터링에 사용합니다."
+        },
+        {
+          "text": "ON",
+          "isCorrect": false,
+          "rationale": "JOIN 결합 조건에 주로 사용합니다."
+        }
+      ],
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요."
+    },
+    {
+      "id": "sql-002",
+      "section": "04 데이터베이스",
+      "question": "book 테이블에 새 행(id: 5, title: '춘향전')을 추가합니다.\n명령어의 시작 키워드 두 단어는?",
+      "code": "____ ____ book VALUES (5, '춘향전');",
+      "answers": [
+        "INSERT INTO",
+        "insert into"
+      ],
+      "hint": "데이터를 테이블 '안에 삽입'한다는 의미의 키워드입니다.",
+      "summary": "INSERT INTO 테이블명 VALUES (값1, 값2, ...); 형태로 새 행을 추가합니다. SET은 UPDATE에서 쓰는 문법입니다.",
+      "explanation": "DML 중 데이터 추가는 INSERT INTO가 표준입니다. ADD TO, REMOVE 같은 키워드는 SQL 표준이 아닙니다.",
+      "options": [
+        {
+          "text": "INSERT INTO",
+          "isCorrect": true,
+          "rationale": "INSERT INTO 테이블(컬럼...) VALUES (값...); / 여러 행은 VALUES (...), (...); 로 한 번에 넣을 수 있습니다."
+        },
+        {
+          "text": "ADD TO book VALUES (5, '춘향전');",
+          "isCorrect": false,
+          "rationale": "SQL에 ADD TO 명령은 없습니다."
+        },
+        {
+          "text": "INSERT INTO book VALUES (5, '춘향전');",
+          "isCorrect": false,
+          "rationale": "빈칸에는 키워드 두 단어(INSERT INTO)만 들어갑니다."
+        },
+        {
+          "text": "INSERT INTO book SET id=5, title='춘향전';",
+          "isCorrect": false,
+          "rationale": "빈칸에는 키워드 두 단어(INSERT INTO)만 들어갑니다."
+        }
+      ],
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요."
+    },
+    {
+      "id": "sql-003",
+      "section": "04 데이터베이스",
+      "question": "출판사가 '엘리스 출판'인 행을 모두 삭제합니다.\n삭제 명령의 시작 두 단어는?",
+      "code": "____ ____ book WHERE publisher = '엘리스 출판';",
+      "answers": [
+        "DELETE FROM",
+        "delete from"
+      ],
+      "hint": "행 데이터를 지울 때 쓰는 DML 키워드입니다. 테이블 전체를 날리는 DROP과 다릅니다.",
+      "summary": "DELETE FROM 테이블 WHERE 조건; 으로 조건에 맞는 행만 삭제합니다. DROP TABLE은 테이블 구조 자체를 제거합니다.",
+      "explanation": "DELETE는 DML(데이터 조작), DROP은 DDL(구조 정의)에 가깝습니다. WHERE 없는 DELETE는 전체 행 삭제이므로 주의가 필요합니다.",
+      "options": [
+        {
+          "text": "DELETE FROM book WHERE publisher = '엘리스 출판';",
+          "isCorrect": false,
+          "rationale": "빈칸에는 키워드 두 단어(DELETE FROM)만 들어갑니다."
+        },
+        {
+          "text": "DROP TABLE book WHERE publisher = '엘리스 출판';",
+          "isCorrect": false,
+          "rationale": "DROP은 테이블 전체를 제거합니다."
+        },
+        {
+          "text": "DELETE FROM",
+          "isCorrect": true,
+          "rationale": "DELETE FROM 테이블 WHERE 조건; / TRUNCATE는 전체 행 빠르게 삭제(DDL 성격). DROP은 테이블 자체 삭제."
+        },
+        {
+          "text": "REMOVE FROM book WHERE publisher = '엘리스 출판';",
+          "isCorrect": false,
+          "rationale": "REMOVE는 SQL 표준 명령이 아닙니다."
+        }
+      ],
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요."
+    },
+    {
+      "id": "sql-004",
+      "section": "04 데이터베이스",
+      "question": "book 테이블에서 id가 10인 행의 title을 '해리포터'로 바꿉니다.\n사용하는 DML 명령어는?",
+      "code": "____ book SET title = '해리포터' WHERE id = 10;",
+      "answers": [
+        "UPDATE",
+        "update"
+      ],
+      "hint": "기존 데이터를 '수정'할 때 쓰는 키워드입니다.",
+      "summary": "UPDATE 테이블 SET 컬럼=값 WHERE 조건; 으로 기존 행의 값을 변경합니다. INSERT는 추가, DELETE는 삭제입니다.",
+      "explanation": "SET 절에 변경할 컬럼과 값을 나열하고, WHERE로 대상 행을 한정합니다. WHERE를 빼면 모든 행이 변경됩니다.",
+      "options": [
+        {
+          "text": "ALTER",
+          "isCorrect": false,
+          "rationale": "테이블 구조 변경(DDL)에 가깝습니다."
+        },
+        {
+          "text": "INSERT",
+          "isCorrect": false,
+          "rationale": "테이블에 새 행을 추가하는 SQL 문입니다."
+        },
+        {
+          "text": "UPDATE",
+          "isCorrect": true,
+          "rationale": "UPDATE 테이블 SET col=값 [, col2=값2] WHERE 조건; WHERE 없으면 전체 행이 변경됩니다."
+        }
+      ],
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요."
+    },
+    {
+      "id": "sql-005",
+      "section": "04 데이터베이스",
+      "question": "조회 결과를 price 기준 내림차순으로 정렬합니다.\nORDER BY 뒤에 올 정렬 방향 키워드는?",
+      "code": "SELECT * FROM book ORDER BY price ____;",
+      "answers": [
+        "DESC",
+        "desc"
+      ],
+      "hint": "큰 값부터 작은 값 순서입니다. 오름차순의 반대입니다.",
+      "summary": "ORDER BY 컬럼 ASC 는 오름차순(작→큰), DESC 는 내림차순(큰→작)입니다. 기본값은 DB에 따라 다를 수 있어 명시하는 것이 안전합니다.",
+      "explanation": "정렬은 결과 집합을 재배열할 뿐, 행 수를 줄이지 않습니다. 필터링은 WHERE, 그룹화는 GROUP BY를 사용합니다.",
+      "options": [
+        {
+          "text": "ASC",
+          "isCorrect": false,
+          "rationale": "ORDER BY 컬럼 ASC 는 오름차순(작→큰), DESC 는 내림차순(큰→작)입니다."
+        },
+        {
+          "text": "SORT",
+          "isCorrect": false,
+          "rationale": "SQL 표준 정렬 키워드가 아닙니다."
+        },
+        {
+          "text": "DESC",
+          "isCorrect": true,
+          "rationale": "ORDER BY 컬럼 ASC 는 오름차순(작→큰), DESC 는 내림차순(큰→작)입니다. 기본값은 DB에 따라 다를 수 있어 명시하는 것이 안전합니다."
+        }
+      ],
+      "itemType": "choice",
+      "choicePrompt": "빈칸에 들어갈 올바른 답을 고르세요."
+    }
+  ]
+}

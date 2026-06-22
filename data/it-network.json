@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "id": "it-network",
+    "title": "네트워크 기초",
+    "description": "OSI, TCP/IP, HTTP, 리눅스·IT 기초 (강의자료 반영)"
+  },
+  "items": [
+    {
+      "id": "net-001",
+      "section": "03 네트워크 실무",
+      "question": "네트워크 계층 중 패킷 라우팅과 IP 주소를 담당하는 계층 번호와 이름은?",
+      "answers": [
+        "3계층 네트워크",
+        "3계층",
+        "네트워크 계층",
+        "network layer",
+        "L3"
+      ],
+      "hint": "IP 주소가 이 계층의 대표 식별자입니다.",
+      "summary": "OSI 3계층(네트워크 계층)은 경로 선택·논리 주소(IP)를 다룹니다. TCP/UDP는 4계층(전송), HTTP는 7계층(응용)에 해당합니다.",
+      "explanation": "라우터는 주로 3계층 장비입니다. 2계층은 MAC·스위칭, 4계층은 포트·신뢰성(또는 비신뢰성) 전송을 담당합니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "7계층 응용",
+          "isCorrect": false,
+          "rationale": "7계층 응용은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "4계층 전송",
+          "isCorrect": false,
+          "rationale": "4계층 전송은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "2계층 데이터링크",
+          "isCorrect": false,
+          "rationale": "2계층 데이터링크은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "3계층 네트워크",
+          "isCorrect": true,
+          "rationale": "OSI 3계층(네트워크 계층)은 경로 선택·논리 주소(IP)를 다룹니다. TCP/UDP는 4계층(전송), HTTP는 7계층(응용)에 해당합니다."
+        }
+      ]
+    },
+    {
+      "id": "net-002",
+      "section": "03 네트워크 실무",
+      "question": "웹 브라우저와 서버가 HTML을 주고받을 때 기본으로 쓰는 응용 계층 프로토콜 약자는?",
+      "answers": [
+        "HTTP",
+        "http"
+      ],
+      "hint": "HyperText Transfer Protocol의 약자입니다.",
+      "summary": "HTTP는 요청-응답 모델의 응용 계층 프로토콜입니다. HTTPS는 TLS로 암호화한 HTTP입니다. FTP는 파일 전송용입니다.",
+      "explanation": "80번 포트(HTTP), 443번 포트(HTTPS)가 대표적입니다. 상태 코드 200은 성공, 404는 리소스 없음을 의미합니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "FTP",
+          "isCorrect": false,
+          "rationale": "파일 전송 프로토콜입니다."
+        },
+        {
+          "text": "SMTP",
+          "isCorrect": false,
+          "rationale": "이메일 송신 프로토콜입니다."
+        },
+        {
+          "text": "HTTP",
+          "isCorrect": true,
+          "rationale": "HTTP는 요청-응답 모델의 응용 계층 프로토콜입니다. HTTPS는 TLS로 암호화한 HTTP입니다. FTP는 파일 전송용입니다."
+        },
+        {
+          "text": "SSH",
+          "isCorrect": false,
+          "rationale": "ssh user@host 형태로 접속. openssh-server 패키지가 서버에 필요합니다."
+        }
+      ]
+    },
+    {
+      "id": "net-003",
+      "section": "02 핵심 운영체제·네트워크 기초",
+      "question": "도메인 이름(예: google.com)을 IP 주소로 바꿔주는 시스템의 약자는?",
+      "answers": [
+        "DNS",
+        "dns"
+      ],
+      "hint": "Domain Name System의 약자입니다.",
+      "summary": "DNS는 분산된 이름 해석 시스템입니다. 브라우저 → DNS 조회 → IP 획득 → TCP 연결 → HTTP 요청 순으로 통신이 이어집니다.",
+      "explanation": "DHCP는 IP 할당, NAT는 사설 IP를 공인 IP로 변환, ARP는 IP→MAC 매핑에 사용됩니다.",
+      "itemType": "choice",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ARP",
+          "isCorrect": false,
+          "rationale": "IP 주소와 MAC 주소를 매핑하는 프로토콜입니다."
+        },
+        {
+          "text": "NAT",
+          "isCorrect": false,
+          "rationale": "사설 IP를 공인 IP로 변환합니다."
+        },
+        {
+          "text": "DHCP",
+          "isCorrect": false,
+          "rationale": "IP 주소 등을 자동으로 할당하는 프로토콜입니다."
+        },
+        {
+          "text": "DNS",
+          "isCorrect": true,
+          "rationale": "DNS는 분산된 이름 해석 시스템입니다. 브라우저 → DNS 조회 → IP 획득 → TCP 연결 → HTTP 요청 순으로 통신이 이어집니다."
+        }
+      ]
+    },
+    {
+      "id": "net-004",
+      "section": "03 네트워크·HTTP",
+      "itemType": "choice",
+      "question": "OSI 7계층 중 전송 계층(4계층)에서 신뢰성 없이 빠르게 보내는 프로토콜은?",
+      "answers": [
+        "UDP",
+        "udp"
+      ],
+      "hint": "TCP의 반대. 영상·게임·DNS에 활용.",
+      "summary": "TCP 연결 지향 / UDP 비연결. 둘 다 4계층(전송).",
+      "explanation": "TCP 연결 지향 / UDP 비연결. 둘 다 4계층(전송).",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "ARP",
+          "isCorrect": false,
+          "rationale": "IP 주소와 MAC 주소를 매핑하는 프로토콜입니다."
+        },
+        {
+          "text": "TCP",
+          "isCorrect": false,
+          "rationale": "TCP: 연결 지향·신뢰성. UDP: 비연결·빠름(스트리밍·DNS 등). HTTP는 보통 TCP 위에서 동작."
+        },
+        {
+          "text": "ICMP",
+          "isCorrect": false,
+          "rationale": "ICMP은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "UDP",
+          "isCorrect": true,
+          "rationale": "TCP 연결 지향 / UDP 비연결. 둘 다 4계층(전송)."
+        }
+      ]
+    },
+    {
+      "id": "net-005",
+      "section": "03 네트워크·HTTP",
+      "itemType": "choice",
+      "question": "HTTPS에서 사용하는 기본 포트 번호는?",
+      "answers": [
+        "443",
+        "443번"
+      ],
+      "hint": "웹 브라우저가 기본으로 사용하는 HTTP 포트 번호입니다. (HTTPS는 443)",
+      "summary": "HTTP 80 / HTTPS 443 / SSH 22 / FTP 21.",
+      "explanation": "HTTP 80 / HTTPS 443 / SSH 22 / FTP 21.",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "80",
+          "isCorrect": false,
+          "rationale": "HTTP 기본 포트 번호입니다."
+        },
+        {
+          "text": "3306",
+          "isCorrect": false,
+          "rationale": "MySQL 기본 포트 번호입니다."
+        },
+        {
+          "text": "443",
+          "isCorrect": true,
+          "rationale": "HTTP 80 / HTTPS 443 / SSH 22 / FTP 21."
+        },
+        {
+          "text": "22",
+          "isCorrect": false,
+          "rationale": "SSH 기본 포트 번호입니다."
+        }
+      ]
+    },
+    {
+      "id": "net-006",
+      "section": "02 리눅스·운영체제",
+      "itemType": "choice",
+      "question": "리눅스 커널과 사용자 사이에서 명령을 해석하는 프로그램은?",
+      "answers": [
+        "셸",
+        "shell",
+        "Shell",
+        "bash"
+      ],
+      "hint": "Bourne Again Shell이 리눅스 기본.",
+      "summary": "Shell → Kernel → Hardware 구조. bash가 기본 셸.",
+      "explanation": "Shell → Kernel → Hardware 구조. bash가 기본 셸.",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "커널",
+          "isCorrect": false,
+          "rationale": "OS 핵심으로 하드웨어·프로세스를 직접 관리합니다."
+        },
+        {
+          "text": "셸",
+          "isCorrect": true,
+          "rationale": "Shell → Kernel → Hardware 구조. bash가 기본 셸."
+        },
+        {
+          "text": "드라이버",
+          "isCorrect": false,
+          "rationale": "드라이버은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "BIOS",
+          "isCorrect": false,
+          "rationale": "BIOS은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ]
+    },
+    {
+      "id": "net-007",
+      "section": "03 네트워크·HTTP",
+      "itemType": "choice",
+      "question": "HTTP 301 Moved Permanently의 의미는?",
+      "choicePrompt": "3xx 리다이렉션 코드",
+      "options": [
+        {
+          "text": "요청한 페이지가 새 URL로 영구 이동했다",
+          "isCorrect": true,
+          "rationale": "검색엔진이 새 URL로 인덱싱을 옮깁니다."
+        },
+        {
+          "text": "요청이 성공했다",
+          "isCorrect": false,
+          "rationale": "요청이 성공했다은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        },
+        {
+          "text": "인증이 필요하다",
+          "isCorrect": false,
+          "rationale": "401 Unauthorized 등입니다."
+        },
+        {
+          "text": "서버 내부 오류가 발생했다",
+          "isCorrect": false,
+          "rationale": "서버 내부 오류가 발생했다은(는) 이 문항이 묻는 핵심과 다른 개념입니다."
+        }
+      ],
+      "summary": "301 영구 / 302·307 일시 리다이렉션.",
+      "explanation": "301 영구 / 302·307 일시 리다이렉션.",
+      "hint": "핵심 개념을 떠올려 보세요. 301 영구 / 302·307 일시 리다이렉션."
+    },
+    {
+      "id": "net-008",
+      "section": "01 IT 리터러시",
+      "itemType": "choice",
+      "question": "컴퓨터가 이해하는 0과 1의 최소 정보 단위는?",
+      "answers": [
+        "비트",
+        "bit",
+        "Bit"
+      ],
+      "hint": "8개가 모이면 바이트(byte).",
+      "summary": "비트(bit) → 바이트(byte) → KB/MB/GB. 데이터는 결국 이진수로 저장·처리됩니다.",
+      "explanation": "비트(bit) → 바이트(byte) → KB/MB/GB. 데이터는 결국 이진수로 저장·처리됩니다.",
+      "choicePrompt": "보기 중 올바른 답을 고르세요.",
+      "options": [
+        {
+          "text": "비트",
+          "isCorrect": true,
+          "rationale": "비트(bit) → 바이트(byte) → KB/MB/GB. 데이터는 결국 이진수로 저장·처리됩니다."
+        },
+        {
+          "text": "니블",
+          "isCorrect": false,
+          "rationale": "4비트(반 바이트)로 묶는 정보 단위이며, 최소 단위인 비트보다 큽니다."
+        },
+        {
+          "text": "워드",
+          "isCorrect": false,
+          "rationale": "CPU가 한 번에 처리하는 데이터 단위(보통 16·32·64비트)입니다."
+        },
+        {
+          "text": "바이트",
+          "isCorrect": false,
+          "rationale": "보통 8비트로 구성된 데이터 단위입니다."
+        }
+      ]
+    }
+  ]
+}
